@@ -1,52 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RiEyeLine } from "react-icons/ri";
-import { usePathname, useRouter } from "next/navigation";
-import ShowModal from "../../Elements/Alerts&Modals/Modal";
-import Btn from "../../Elements/Buttons/Btn";
-import useCreate from "../../Utils/Hooks/useCreate";
-import BadgeContext from "../../Helper/BadgeContext";
-import usePermissionCheck from "../../Utils/Hooks/usePermissionCheck";
+import { useRouter } from "next/navigation";
 import ViewDetailBody from "./ViewDetailBody";
+import ShowModal from "../../Elements/Alerts&Modals/Modal";
+import ViewDetailBodyMulti from "./ViewDetailBodyMulti";
 
 const ViewDetails = ({ fullObj, tableData, refetch }) => {
   const router = useRouter();
-  const pathname = usePathname();
   const [modal, setModal] = useState(false);
-  const [loadingState, setLoadingState] = useState("");
-  const { data, mutate, isLoading } = useCreate(
-    `${tableData.url}/${fullObj.id}`,
-    false,
-    false,
-    false,
-    () => {
-      refetch();
-      setModal(false);
-    }
-  );
-  useEffect(() => {
-    if (data) {
-      let store = state?.badges?.map((elem) => {
-        if (elem.path == "/refund") {
-          elem = { path: elem.path, value: data?.data?.total_pending_refunds };
-        } else if (elem.path == pathname.toString()) {
-          elem = {
-            path: elem.path,
-            value: data?.data?.total_pending_withdraw_requests,
-          };
-        }
-        return elem;
-      });
-      dispatch({ type: "ALLBADGE", allBadges: store });
-    }
-  }, [isLoading]);
-  const OnStatusClick = (value) => {
-    setLoadingState(value);
-    let obj = {
-      _method: "PUT",
-      status: value,
-    };
-    mutate(obj);
-  };
+
   const redirectLink = () => {
     const userId = fullObj?.id;
     router.push(`${tableData?.redirectUrl}/${userId}`);
@@ -64,32 +26,13 @@ const ViewDetails = ({ fullObj, tableData, refetch }) => {
       </div>
       <ShowModal
         open={modal}
-        title={fullObj.user_name || tableData.modalTitle}
+        title={`Betslip Details for ${fullObj?.user?.user_name}`}
         close={true}
         setModal={setModal}
         modalAttr={"modal-lg"}
-        buttons={
-          <>
-            {/* {action && fullObj?.status == "pending" && (
-              <>
-                <Btn
-                  title="Rejected"
-                  onClick={() => OnStatusClick("rejected")}
-                  loading={Number(loadingState == "rejected" && isLoading)}
-                  className="btn--no btn-md fw-bold"
-                />
-                <Btn
-                  title="Approved"
-                  loading={Number(loadingState == "approved" && isLoading)}
-                  onClick={() => OnStatusClick("approved")}
-                  className="btn-theme btn-md fw-bold"
-                />
-              </>
-            )} */}
-          </>
-        }
       >
-        <ViewDetailBody fullObj={fullObj} />
+        {fullObj?.single_bets && <ViewDetailBody fullObj={fullObj} />}
+        {fullObj?.multiple_bets && <ViewDetailBodyMulti fullObj={fullObj} />}
       </ShowModal>
     </>
   );

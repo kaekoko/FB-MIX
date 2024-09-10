@@ -16,6 +16,7 @@ const TableTitle = ({
   filterHeader,
   importExport,
   refetch,
+  data,
 }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
@@ -49,6 +50,74 @@ const TableTitle = ({
           </Btn>
         )}
       </NoSsr>
+      {filterHeader?.isDetail && data && (
+        <>
+          {data?.data && (
+            <div className="d-flex gap-3">
+              {data?.data?.total_stake ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Stake : </span>
+                    <span>{Number(data?.data?.total_stake || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_commission ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Commission : </span>
+                    <span>{Number(data?.data?.total_commission || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_return_amount ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Win : </span>
+                    <span>{Number(data?.data?.total_return_amount || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.win_lose ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Profit : </span>
+                    <span>{Number(data?.data?.win_lose || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Slip : </span>
+                    <span>{Number(data?.data?.total || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_balance ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Balance : </span>
+                    <span>{Number(data?.data?.total_balance || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

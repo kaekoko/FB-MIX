@@ -82,3 +82,25 @@ export const userTransactionHistoryAPI = "/agent/user/deposit/withdraw/history";
 
 //Report
 export const ReportAPI = "/report";
+
+//Bets Single
+export const singleBetAllAPI = "/agent/user/all/betslips/single?type=all";
+export const singleBetPendingAPI =
+  "/agent/user/all/betslips/single?type=pending";
+export const singleBetWonAPI = "/agent/user/all/betslips/single?type=win";
+export const singleBetLostAPI = "/agent/user/all/betslips/single?type=loss";
+export const singleBetRefundedAPI =
+  "/agent/user/all/betslips/single?type=refund";
+
+//Bets Multi
+export const multipleBetAllAPI = "/agent/user/all/betslips/multiple?type=all";
+export const multipleBetPendingAPI =
+  "/agent/user/all/betslips/multiple?type=pending";
+export const multipleBetWonAPI = "/agent/user/all/betslips/multiple?type=win";
+export const multipleBetLostAPI = "/agent/user/all/betslips/multiple?type=loss";
+export const multipleBetRefundedAPI =
+  "/agent/user/all/betslips/multiple?type=refund";
+
+//self
+export const selfTransactionAPI = "/agent/user/self/deposit/withdraw/history";
+export const selfCommissionAPI = "/agent/user/self/commission/history";

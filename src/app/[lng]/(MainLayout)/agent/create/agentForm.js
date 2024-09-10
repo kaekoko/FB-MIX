@@ -48,6 +48,8 @@ const AgentForm = () => {
     alert("Copied password to clipboard");
   };
 
+  console.log(accountData);
+
   return (
     <Formik
       enableReinitialize
@@ -58,17 +60,17 @@ const AgentForm = () => {
         phone_number: "",
         max_single_bet: "",
         max_mix_bet: "",
-        single_bet_commission: "",
-        match_count_two: "",
-        match_count_three: "",
-        match_count_four: "",
-        match_count_five: "",
-        match_count_six: "",
-        match_count_seven: "",
-        match_count_eight: "",
-        match_count_nine: "",
-        match_count_ten: "",
-        match_count_eleven: "",
+        single_bet_commission: Number(accountData?.single_bet_commission || 0),
+        match_count_two: Number(accountData?.match_count_two || 0),
+        match_count_three: Number(accountData?.match_count_three || 0),
+        match_count_four: Number(accountData?.match_count_four || 0),
+        match_count_five: Number(accountData?.match_count_five || 0),
+        match_count_six: Number(accountData?.match_count_six || 0),
+        match_count_seven: Number(accountData?.match_count_seven || 0),
+        match_count_eight: Number(accountData?.match_count_eight || 0),
+        match_count_nine: Number(accountData?.match_count_nine || 0),
+        match_count_ten: Number(accountData?.match_count_ten || 0),
+        match_count_eleven: Number(accountData?.match_count_eleven || 0),
       }}
       validationSchema={YupObject({
         name: nameSchema,

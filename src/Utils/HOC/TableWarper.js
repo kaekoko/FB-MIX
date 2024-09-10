@@ -78,7 +78,7 @@ const TableWarper = (WrappedComponent) => {
         { refetchOnWindowFocus: false, refetchOnMount: false, cacheTime: 0 }
       );
 
-      console.log(selectFilter);
+      console.log(data);
 
       // To use this function in parent
       useImperativeHandle(ref, () => ({
@@ -124,6 +124,7 @@ const TableWarper = (WrappedComponent) => {
                 filterHeader={filterHeader}
                 importExport={importExport}
                 refetch={refetch}
+                data={data}
               />
               {(filterHeader?.noPageDrop !== true ||
                 filterHeader?.noSearch !== true) && (
