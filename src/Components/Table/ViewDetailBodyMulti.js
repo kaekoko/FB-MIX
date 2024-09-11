@@ -8,7 +8,6 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
   const { convertCurrency } = useContext(SettingContext);
-  console.log(fullObj);
 
   return (
     <div className="d-flex flex-column gap-2">
@@ -94,6 +93,11 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
               >
                 Under
               </div>
+            </div>
+
+            <div className="d-flex justify-content-between mt-3 mx-1">
+              <div className="text-danger fw-bold">Win Odd</div>
+              <div>{a.win_odds ?? 0}</div>
             </div>
           </div>
         </>

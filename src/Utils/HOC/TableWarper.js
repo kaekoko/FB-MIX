@@ -43,6 +43,7 @@ const TableWarper = (WrappedComponent) => {
       const [page, setPage] = useState(1);
       const [search, setSearch] = useState("");
       const [selectFilter, setSelectFilter] = useState(null);
+      const [betType, setBetType] = useState(null);
       const [date, setDate] = useState([
         {
           startDate: startOfDay(new Date()) || null,
@@ -67,6 +68,7 @@ const TableWarper = (WrappedComponent) => {
                 sort: sortBy?.sort,
                 field: sortBy?.field,
                 type: type || selectFilter?.value,
+                bet_type: betType?.value,
                 start_date: format(date[0]?.startDate, "yyyy-MM-dd") ?? null,
                 end_date: format(date[0]?.endDate, "yyyy-MM-dd") ?? null,
 
@@ -77,8 +79,6 @@ const TableWarper = (WrappedComponent) => {
           ),
         { refetchOnWindowFocus: false, refetchOnMount: false, cacheTime: 0 }
       );
-
-      console.log(data);
 
       // To use this function in parent
       useImperativeHandle(ref, () => ({
@@ -98,6 +98,7 @@ const TableWarper = (WrappedComponent) => {
         load,
         sortBy,
         type,
+        betType?.value,
         selectFilter?.value,
         paramsProps ? paramsProps[ifParamsData] : "",
       ]);
@@ -144,6 +145,8 @@ const TableWarper = (WrappedComponent) => {
                   keyInPermission={keyInPermission}
                   selectFilter={selectFilter}
                   setSelectFilter={setSelectFilter}
+                  betType={betType}
+                  setBetType={setBetType}
                 />
               )}
               <div className="table-responsive border-table">

@@ -6,6 +6,8 @@ import TabTitle from "@/Components/Coupon/TabTitle";
 import { AccountTab } from "@/Data/TabTitleListData";
 import UserGeneral from "./_components/General";
 import UserTransaction from "./_components/Transaction";
+import UserBetslip from "./_components/Betslip";
+import Report from "./_components/Report";
 
 const UserDetail = ({ params }) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -24,6 +26,12 @@ const UserDetail = ({ params }) => {
         </TabPane>
         <TabPane tabId="2">
           <UserTransaction {...{ params, activeTab }} />
+        </TabPane>
+        <TabPane tabId="3">
+          <UserBetslip {...{ params, activeTab }} />
+        </TabPane>
+        <TabPane tabId="4">
+          <Report {...{ params, activeTab }} />
         </TabPane>
       </TabContent>
     </div>

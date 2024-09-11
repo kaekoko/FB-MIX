@@ -31,8 +31,11 @@ const ViewDetails = ({ fullObj, tableData, refetch }) => {
         setModal={setModal}
         modalAttr={"modal-lg"}
       >
-        {fullObj?.single_bets && <ViewDetailBody fullObj={fullObj} />}
-        {fullObj?.multiple_bets && <ViewDetailBodyMulti fullObj={fullObj} />}
+        {fullObj?.bet_type === "single" ? (
+          <ViewDetailBody fullObj={fullObj} />
+        ) : (
+          <ViewDetailBodyMulti fullObj={fullObj} />
+        )}
       </ShowModal>
     </>
   );

@@ -403,6 +403,8 @@ export const BlogTypeOption = [
 export const AccountTab = [
   { title: "General", icon: <RiAccountBoxLine /> },
   { title: "Transaction", icon: <RiPhoneLockLine /> },
+  { title: "Bet History", icon: <RiLineChartLine /> },
+  { title: "Report", icon: <RiPieChartLine /> },
 ];
 
 export const PaymentDetailTab = [
@@ -617,5 +619,43 @@ export const depositWithdrawHistory = [
   {
     value: "out",
     name: "Withdraw",
+  },
+];
+
+export const eachBetslipForAll = [
+  {
+    value: "",
+    name: "All",
+  },
+  {
+    value: "win",
+    name: "Win",
+  },
+  {
+    value: "loss",
+    name: "Loss",
+  },
+  {
+    value: "pending",
+    name: "Pending",
+  },
+  {
+    value: "refund",
+    name: "Refund",
+  },
+];
+
+export const BET_TYPE_LIST = [
+  {
+    value: "",
+    name: "All",
+  },
+  {
+    value: "single",
+    name: "Single",
+  },
+  {
+    value: "multiple",
+    name: "Multiple",
   },
 ];

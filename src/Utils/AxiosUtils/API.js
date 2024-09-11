@@ -11,6 +11,9 @@ export const selfData = "/agent/profile";
 export const updateProfile = "/updateProfile";
 export const updateProfilePassword = "/agent/profile/change/password";
 
+//dashboard data (get)
+export const AgentdashboardAPI = "/agent/dashboard";
+
 //roles api
 export const role = "role";
 
@@ -68,6 +71,9 @@ export const AgentGeneralAPI = "/agent/update/general";
 export const AgentCommissionAPI = "/agent/update/commission";
 export const AgentPasswordAPI = "/agent/change/password";
 export const AgentTransactionHistoryAPI = "agent/deposit/withdraw/history";
+export const AgentEachBetSlipAPI = "/agent/user/betslip";
+export const AgentReportAPI = "/agent/byagent/report";
+export const AgentCommissionHistoryAPI = "/agent/commission/list";
 
 //User Management
 export const userListAPI = "/agent/user/list";
@@ -79,6 +85,8 @@ export const userGeneralAPI = "/agent/user/update/general";
 export const userCommissionAPI = "/agent/user/update/commission";
 export const userPasswordAPI = "/agent/user/change/password";
 export const userTransactionHistoryAPI = "/agent/user/deposit/withdraw/history";
+export const userEachBetSlipAPI = "/agent/user/betslip";
+export const userReportAPI = "/agent/user/report";
 
 //Report
 export const ReportAPI = "/report";

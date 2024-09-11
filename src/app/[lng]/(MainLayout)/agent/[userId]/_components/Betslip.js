@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { userTransactionHistoryAPI } from "@/Utils/AxiosUtils/API";
+import { userEachBetSlipAPI } from "@/Utils/AxiosUtils/API";
 import { Form, Formik } from "formik";
-import AgentTransactionTable from "../../../agent/[userId]/_components/table/agent-transaction-table";
+import AgentBetslipTable from "../../../agent/[userId]/_components/table/agent-betslip-table";
 
-const UserTransaction = ({ params, activeTab }) => {
-  const [url, setUrl] = useState(
-    userTransactionHistoryAPI + "/" + params?.userId
-  );
+const AgentBetSlip = ({ params, activeTab }) => {
+  const [url, setUrl] = useState(userEachBetSlipAPI + "/" + params?.userId);
 
   return (
     <>
       <Formik initialValues={{ category_ids: "" }}>
         {({ values, setFieldValue }) => (
           <Form>
-            <AgentTransactionTable
-              moduleName="User Transaction"
+            <AgentBetslipTable
+              moduleName="User Betslip"
               url={url}
               dateRange
               paramsProps={{
@@ -24,6 +22,9 @@ const UserTransaction = ({ params, activeTab }) => {
                 noSearch: true,
                 onlyNoPageDrop: true,
                 filterSelect: true,
+                isDetail: true,
+                isBetSlip: true,
+                betType: true,
               }}
             />
           </Form>
@@ -33,4 +34,4 @@ const UserTransaction = ({ params, activeTab }) => {
   );
 };
 
-export default UserTransaction;
+export default AgentBetSlip;

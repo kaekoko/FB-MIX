@@ -28,6 +28,8 @@ const TableTop = (props) => {
     keyInPermission,
     selectFilter,
     setSelectFilter,
+    betType,
+    setBetType,
   } = props;
   const [edit, destroy] = usePermissionCheck(
     ["edit", "destroy"],
@@ -95,8 +97,18 @@ const TableTop = (props) => {
         <DepositWithdrawFilter
           selectFilter={selectFilter}
           setSelectFilter={setSelectFilter}
+          type={filterHeader?.isBetSlip ? "betslip" : "transaction"}
         />
       )}
+      {/* Bet Type Filter */}
+      {filterHeader?.betType && (
+        <DepositWithdrawFilter
+          selectFilter={betType}
+          setSelectFilter={setBetType}
+          type={"BETTYPE"}
+        />
+      )}
+
       {dateRange && <CalenderFilter date={date} setDate={setDate} />}
 
       {filterHeader?.noSearch !== true && (

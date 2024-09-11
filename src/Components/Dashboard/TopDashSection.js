@@ -1,74 +1,188 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { FiBox } from "react-icons/fi";
-import { RiFileTextLine, RiGroupLine, RiWalletLine } from "react-icons/ri";
-import { Col, Container, Row } from "reactstrap";
+import { useContext, useEffect, useState } from "react";
+import { FiBox, FiPercent } from "react-icons/fi";
+import {
+  RiFileTextLine,
+  RiGroupLine,
+  RiUser2Fill,
+  RiWalletLine,
+} from "react-icons/ri";
+import { Card, CardHeader, CardBody, Col, Container, Row } from "reactstrap";
 import SettingContext from "../../Helper/SettingContext";
 import request from "../../Utils/AxiosUtils";
-import { StatisticsCountAPI } from "../../Utils/AxiosUtils/API";
+import { AgentdashboardAPI } from "../../Utils/AxiosUtils/API";
 import I18NextContext from "@/Helper/I18NextContext";
 import { useTranslation } from "@/app/i18n/client";
+import CalenderFilter from "../Table/CalenderFilter";
+import { endOfDay, format, startOfDay } from "date-fns";
+import Loader from "../CommonComponent/Loader";
 
 const TopDashSection = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
-  const { convertCurrency } = useContext(SettingContext);
-  const { data } = useQuery(
-    [StatisticsCountAPI],
-    () => request({ url: StatisticsCountAPI }),
-    { refetchOnWindowFocus: false, select: (data) => data?.data }
+  const [date, setDate] = useState([
+    {
+      startDate: startOfDay(new Date()) || null,
+      endDate: endOfDay(new Date()) || null,
+      key: "selection",
+    },
+  ]);
+  const { data, isFetching, refetch } = useQuery(
+    ["agentDashboard"],
+    () =>
+      request({
+        url: `${AgentdashboardAPI}`,
+        method: "get",
+        params: {
+          start_date: format(date[0]?.startDate, "yyyy-MM-dd") ?? null,
+          end_date: format(date[0]?.endDate, "yyyy-MM-dd") ?? null,
+        },
+      }),
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      cacheTime: 0,
+    }
   );
+
+  useEffect(() => {
+    !isFetching && refetch();
+  }, [date]);
+
+  if (isFetching) return <Loader />;
 
   return (
     <section className="dashboard-tiles">
-      <Container fluid={true} className="p-sm-0">
-        <Row className="g-3">
-          <Col xl={3} sm={6}>
-            <div className="card-tiles">
-              <div>
-                <h6>{t("TotalRevenue")}</h6>
-                <h3>{convertCurrency(data?.total_revenue || 0)}</h3>
-              </div>
-              <div className="icon-box">
-                <RiWalletLine />
-              </div>
-            </div>
-          </Col>
-          <Col xl={3} sm={6}>
-            <div className="card-tiles">
-              <div>
-                <h6>{t("TotalOrders")}</h6>
-                <h3>{data?.total_orders}</h3>
-              </div>
-              <div className="icon-box">
-                <RiFileTextLine />
-              </div>
-            </div>
-          </Col>
-          <Col xl={3} sm={6}>
-            <div className="card-tiles">
-              <div>
-                <h6>{t("TotalStores")}</h6>
-                <h3>{data?.total_stores}</h3>
-              </div>
-              <div className="icon-box">
-                <FiBox />
-              </div>
-            </div>
-          </Col>
-          <Col xl={3} sm={6}>
-            <div className="card-tiles">
-              <div>
-                <h6>{t("TotalUser")}</h6>
-                <h3>{data?.total_users}</h3>
-              </div>
-              <div className="icon-box">
-                <RiGroupLine />
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <Card className="bg-transparent border">
+        <CardHeader className="d-flex align-items-center pb-3 bg-transparent">
+          <div className="fs-4 fw-bold ps-md-3">Dashboard</div>
+          <div className="ms-auto">
+            {date && <CalenderFilter date={date} setDate={setDate} />}
+          </div>
+        </CardHeader>
+        <CardBody className="bg-white rounded-3 p-3">
+          <div className="fs-5 mb-2 text-muted">Transaction Report</div>
+          <Container fluid={true} className="p-sm-0">
+            <Row className="g-3 py-2">
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Deposit")}</h6>
+                    <h3>{data?.data?.data?.total_deposit}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiWalletLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Withdraw")}</h6>
+                    <h3>{data?.data?.data?.total_withdraw}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiFileTextLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Difference")}</h6>
+                    <h3>{data?.data?.data?.different}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiPercent />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </CardBody>
+
+        <CardBody className="bg-white p-3">
+          <div className="fs-5 mb-2 text-muted">Betting Report</div>
+          <Container fluid={true} className="p-sm-0">
+            <Row className="g-3 py-2">
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Stake")}</h6>
+                    <h3>{data?.data?.data?.total_stake}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiWalletLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Win")}</h6>
+                    <h3>{data?.data?.data?.total_win}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiFileTextLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Commission")}</h6>
+                    <h3>{data?.data?.data?.total_commission}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Profit")}</h6>
+                    <h3>{data?.data?.data?.profit}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiPercent />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </CardBody>
+
+        <CardBody className="bg-white rounded-bottom rounded-bottom-3 p-3">
+          <div className="fs-5 mb-2 text-muted">Betting Report</div>
+          <Container fluid={true} className="p-sm-0">
+            <Row className="g-3 py-2">
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total User")}</h6>
+                    <h3>{data?.data?.data?.total_user}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiGroupLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Agent")}</h6>
+                    <h3>{data?.data?.data?.total_agent}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiUser2Fill />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </CardBody>
+      </Card>
     </section>
   );
 };
