@@ -9,6 +9,11 @@ const ProfileInformation = () => {
   const { data, refetch, isFetching } = useQuery({
     queryKey: ["profile"],
     queryFn: () => request({ url: selfData }).then((res) => res?.data),
+    cacheTime: 1000 * 60 * 5,
+    staleTime: 1000 * 60 * 5,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
   });
 
   if (isFetching) return <Loader />;

@@ -28,6 +28,7 @@ const LoginHandle = (responseData, router, setShowBoxMessage, setCookie) => {
       localStorage.setItem("role", "agent");
     }
     router.push("/en/dashboard");
+    localStorage.setItem("rule_toggle", true);
   } else {
     setShowBoxMessage(responseData.response.data?.data.error);
   }

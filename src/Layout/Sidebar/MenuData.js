@@ -136,20 +136,20 @@ const MENUITEMS = [
       },
     ],
   },
-  {
-    title: "Report",
-    displayTitle: "Report",
-    icon: <RiListUnordered />,
-    type: "sub",
-    children: [
-      {
-        title: "User W/L Detail",
-        path: "/report",
-        displayTitle: "winlose/detail",
-        permission: [""],
-      },
-    ],
-  },
+  // {
+  //   title: "Report",
+  //   displayTitle: "Report",
+  //   icon: <RiListUnordered />,
+  //   type: "sub",
+  //   children: [
+  //     {
+  //       title: "User W/L Detail",
+  //       path: "/report",
+  //       displayTitle: "winlose/detail",
+  //       permission: [""],
+  //     },
+  //   ],
+  // },
 ];
 
 export default MENUITEMS;

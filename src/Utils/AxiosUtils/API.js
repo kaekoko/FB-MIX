@@ -17,6 +17,9 @@ export const AgentdashboardAPI = "/agent/dashboard";
 //roles api
 export const role = "role";
 
+//rules and regulations
+export const agentRulesAPI = "/agent/rules";
+
 //users api
 export const user = "user";
 export const UserImportAPI = "user/csv/import";
@@ -70,8 +73,8 @@ export const AgentDetailAPI = "/agent/details";
 export const AgentGeneralAPI = "/agent/update/general";
 export const AgentCommissionAPI = "/agent/update/commission";
 export const AgentPasswordAPI = "/agent/change/password";
-export const AgentTransactionHistoryAPI = "agent/deposit/withdraw/history";
-export const AgentEachBetSlipAPI = "/agent/user/betslip";
+export const AgentTransactionHistoryAPI = "/agent/deposit/withdraw/history";
+export const AgentEachBetSlipAPI = "/agent/byagent/betslips";
 export const AgentReportAPI = "/agent/byagent/report";
 export const AgentCommissionHistoryAPI = "/agent/commission/list";
 
@@ -112,3 +115,7 @@ export const multipleBetRefundedAPI =
 //self
 export const selfTransactionAPI = "/agent/user/self/deposit/withdraw/history";
 export const selfCommissionAPI = "/agent/user/self/commission/history";
+
+//USER LIST
+export const agentEachAgentList = "/agent/byagent/agentList";
+export const agentEachUserList = "/agent/byagent/userList";

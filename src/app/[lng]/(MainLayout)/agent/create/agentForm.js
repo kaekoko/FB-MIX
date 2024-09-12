@@ -79,17 +79,39 @@ const AgentForm = () => {
         password: passwordSchema,
         max_single_bet: Yup.number().required(),
         max_mix_bet: Yup.number().required(),
-        single_bet_commission: Yup.number().required(),
-        match_count_two: Yup.number().required(),
-        match_count_three: Yup.number().required(),
-        match_count_four: Yup.number().required(),
-        match_count_five: Yup.number().required(),
-        match_count_six: Yup.number().required(),
-        match_count_seven: Yup.number().required(),
-        match_count_eight: Yup.number().required(),
-        match_count_nine: Yup.number().required(),
-        match_count_ten: Yup.number().required(),
-        match_count_eleven: Yup.number().required(),
+        single_bet_commission: Yup.number()
+          .required()
+          .max(Number(accountData?.single_bet_commission)),
+        match_count_two: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_two)),
+        match_count_three: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_three)),
+        match_count_four: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_four)),
+        match_count_five: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_five)),
+        match_count_six: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_six)),
+        match_count_seven: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_seven)),
+        match_count_eight: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_eight)),
+        match_count_nine: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_nine)),
+        match_count_ten: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_ten)),
+        match_count_eleven: Yup.number()
+          .required()
+          .max(Number(accountData?.match_count_eleven)),
       })}
       onSubmit={(values, { resetForm }) => {
         values["user_name"] =

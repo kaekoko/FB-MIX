@@ -1,34 +1,33 @@
 import { useEffect, useState } from "react";
-import { AgentTransactionHistoryAPI } from "@/Utils/AxiosUtils/API";
-import AgentTransactionTable from "./table/agent-transaction-table";
 import { Form, Formik } from "formik";
+import AgentEachListTable from "../_components/table/agent-list-table";
+import { agentEachAgentList } from "@/Utils/AxiosUtils/API";
 import Loader from "@/Components/CommonComponent/Loader";
 
-const AgentTransaction = ({ params, activeTab }) => {
+const AgentEachAgentList = ({ params, activeTab }) => {
   const [loading, setLoading] = useState(true);
   const [url, setUrl] = useState("");
 
   useEffect(() => {
     const reload = setTimeout(() => {
       setLoading(false);
-      setUrl(AgentTransactionHistoryAPI + "/" + params?.userId);
+      setUrl(agentEachAgentList + "/" + params?.userId);
     }, 1000);
     return () => clearTimeout(reload);
   }, [activeTab]);
 
   if (loading) return <Loader />;
-
   return (
     <>
       <Formik initialValues={{ category_ids: "" }}>
         {({ values, setFieldValue }) => (
           <Form>
-            <AgentTransactionTable
-              moduleName="Transaction"
+            <AgentEachListTable
+              moduleName="Agent List"
               url={url}
               dateRange
               paramsProps={{
-                category_ids: params?.userId,
+                category_ids: params.userId,
               }}
               filterHeader={{
                 noSearch: true,
@@ -43,4 +42,4 @@ const AgentTransaction = ({ params, activeTab }) => {
   );
 };
 
-export default AgentTransaction;
+export default AgentEachAgentList;

@@ -7,14 +7,16 @@ import {
   useAgentGeneralModal,
   useAgentCommissionModal,
 } from "@/Utils/Zustand";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { FaEdit, FaLock } from "react-icons/fa";
 import { Card, Col, Row } from "reactstrap";
 import AgentGeneralModal from "./modal/agent-general-modal";
 import AgentCommissionModal from "./modal/agent-commission-model";
 import AgentPasswordModal from "./modal/agent-password-modal";
+import AccountContext from "@/Helper/AccountContext";
 
 const AgentGeneral = ({ params: { userId }, activeTab }) => {
+  const { accountData } = useContext(AccountContext);
   const { onOpen: agentPasswordOnOpen, setData: agentPasswordSetData } =
     useAgentPasswordModal();
   const { onOpen: agentGeneralOnOpen, setData: agentGeneralSetData } =
@@ -39,26 +41,30 @@ const AgentGeneral = ({ params: { userId }, activeTab }) => {
       <AgentGeneralModal refetch={() => AgentDetailMutate({ id: userId })} />
       <AgentCommissionModal refetch={() => AgentDetailMutate({ id: userId })} />
 
-      <Btn
-        onClick={() => {
-          agentPasswordOnOpen();
-          agentPasswordSetData(data?.data?.data);
-        }}
-        className="btn-sm mb-2"
-      >
-        <FaLock className="me-2" />
-        Change Password
-      </Btn>
-      <Card className="rounded-2 mb-3">
+      {data?.data?.data?.self_agent_id === accountData?.id && (
         <Btn
           onClick={() => {
-            agentGeneralOnOpen();
-            agentGeneralSetData(data?.data?.data);
+            agentPasswordOnOpen();
+            agentPasswordSetData(data?.data?.data);
           }}
-          className="btn-sm btn-danger ms-auto"
+          className="btn-sm mb-2"
         >
-          <FaEdit />
+          <FaLock className="me-2" />
+          Change Password
         </Btn>
+      )}
+      <Card className="rounded-2 mb-3">
+        {data?.data?.data?.self_agent_id === accountData?.id && (
+          <Btn
+            onClick={() => {
+              agentGeneralOnOpen();
+              agentGeneralSetData(data?.data?.data);
+            }}
+            className="btn-sm btn-danger ms-auto"
+          >
+            <FaEdit />
+          </Btn>
+        )}
 
         <Row className="mx-md-5 gap-3">
           <Col sm={12} md={4} className="d-flex flex-column gap-2">
@@ -92,15 +98,17 @@ const AgentGeneral = ({ params: { userId }, activeTab }) => {
       </Card>
       <div className="fs-4 my-2 text-muted">Mix Bet Commission</div>
       <Card className="rounded-2 border pt-3 bg-transparent">
-        <Btn
-          onClick={() => {
-            agentCommissionOnOpen();
-            agentCommissionSetData(data?.data?.data);
-          }}
-          className="btn-sm btn-danger ms-auto"
-        >
-          <FaEdit />
-        </Btn>
+        {data?.data?.data?.self_agent_id === accountData?.id && (
+          <Btn
+            onClick={() => {
+              agentCommissionOnOpen();
+              agentCommissionSetData(data?.data?.data);
+            }}
+            className="btn-sm btn-danger ms-auto"
+          >
+            <FaEdit />
+          </Btn>
+        )}
 
         <Row className="mx-md-5 gap-3">
           <Col sm={12} md={4} className="d-flex flex-column gap-2">

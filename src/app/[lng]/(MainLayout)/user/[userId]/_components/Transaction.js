@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { userTransactionHistoryAPI } from "@/Utils/AxiosUtils/API";
 import { Form, Formik } from "formik";
 import AgentTransactionTable from "../../../agent/[userId]/_components/table/agent-transaction-table";
+import Loader from "@/Components/CommonComponent/Loader";
 
 const UserTransaction = ({ params, activeTab }) => {
-  const [url, setUrl] = useState(
-    userTransactionHistoryAPI + "/" + params?.userId
-  );
+  const [loading, setLoading] = useState(true);
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    const reload = setTimeout(() => {
+      setLoading(false);
+      setUrl(userTransactionHistoryAPI + "/" + params?.userId);
+    }, 1000);
+    return () => clearTimeout(reload);
+  }, [activeTab]);
+
+  if (loading) return <Loader />;
 
   return (
     <>

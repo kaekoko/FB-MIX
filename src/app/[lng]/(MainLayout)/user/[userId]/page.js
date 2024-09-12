@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { act, useState } from "react";
 import { TabContent, TabPane } from "reactstrap";
 import TabTitle from "@/Components/Coupon/TabTitle";
 import { AccountTab } from "@/Data/TabTitleListData";
@@ -22,16 +22,16 @@ const UserDetail = ({ params }) => {
       />
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
-          <UserGeneral {...{ params, activeTab }} />
+          {activeTab === "1" && <UserGeneral {...{ params, activeTab }} />}
         </TabPane>
         <TabPane tabId="2">
-          <UserTransaction {...{ params, activeTab }} />
+          {activeTab === "2" && <UserTransaction {...{ params, activeTab }} />}
         </TabPane>
         <TabPane tabId="3">
-          <UserBetslip {...{ params, activeTab }} />
+          {activeTab === "3" && <UserBetslip {...{ params, activeTab }} />}
         </TabPane>
         <TabPane tabId="4">
-          <Report {...{ params, activeTab }} />
+          {activeTab === "4" && <Report {...{ params, activeTab }} />}
         </TabPane>
       </TabContent>
     </div>

@@ -94,7 +94,7 @@ const UserFormCreate = () => {
                   name="user_name"
                   id="user_name"
                   style={{ textIndent: "5.5rem", fontWeight: "bold" }}
-                  maxLength={3}
+                  maxLength={6}
                   component={ReactstrapInput}
                 />
               </div>

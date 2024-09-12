@@ -54,8 +54,6 @@ const AgentCommissionTable = ({ data, ...props }) => {
   }, [headerObj?.data]);
   headerObj.data = headerObj ? orders : [];
 
-  console.log(data);
-
   if (!data) return null;
   return (
     <>

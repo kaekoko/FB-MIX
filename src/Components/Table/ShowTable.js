@@ -14,7 +14,8 @@ import TableLoader from "./TableLoader";
 import I18NextContext from "@/Helper/I18NextContext";
 import { useTranslation } from "@/app/i18n/client";
 import { useAgentBalanceModal, useSlipModal } from "@/Utils/Zustand";
-import { FaMoneyBill } from "react-icons/fa";
+import { FaMoneyBill, FaRegCopy } from "react-icons/fa";
+import { ToastNotification } from "@/Utils/CustomFunctions/ToastNotification";
 
 const ShowTable = ({
   current_page,
@@ -92,6 +93,15 @@ const ShowTable = ({
       return mainData;
     }
   };
+
+  //Copy sub-objects
+  const handleCPUsername = (cpdta) => {
+    navigator.clipboard.writeText(
+      `Username: ${cpdta.user_name}, Password: ${cpdta.pp_copy}`
+    );
+    ToastNotification("success", "Copied credentials to clipboard!");
+  };
+
   return (
     <Table
       id="table_id"
@@ -261,6 +271,15 @@ const ShowTable = ({
                         >
                           <FaMoneyBill /> {item?.btnText}
                         </button>
+                      </>
+                    ) : item.type == "copy" ? (
+                      <>
+                        {tableData[item?.apiKey]}
+                        <FaRegCopy
+                          onClick={() => handleCPUsername(tableData)}
+                          className="text-primary ms-2"
+                          size={15}
+                        />
                       </>
                     ) : item?.subKey ? (
                       <>

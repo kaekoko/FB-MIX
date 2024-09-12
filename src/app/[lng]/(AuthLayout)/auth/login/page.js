@@ -33,8 +33,8 @@ const Login = () => {
         <div className="input-box">
           <Formik
             initialValues={{
-              user_name: "AdmIGR",
-              password: "password",
+              user_name: "",
+              password: "",
             }}
             validationSchema={YupObject({
               user_name: nameSchema,
@@ -52,7 +52,7 @@ const Login = () => {
                     className="form-control"
                     id="user_name"
                     placeholder="User Name"
-                    label="User Name"
+                    label="Username"
                   />
                 </Col>
                 <Col sm="12">
@@ -67,16 +67,6 @@ const Login = () => {
                   />
                 </Col>
 
-                {/* <Col sm="12">
-                  <div className="forgot-box">
-                    <Link
-                      href={`/${i18Lang}/auth/forgot-password`}
-                      className="forgot-password"
-                    >
-                      {t("ForgotPassword")}?
-                    </Link>
-                  </div>
-                </Col> */}
                 <Col sm="12">
                   <Btn
                     title="Login"

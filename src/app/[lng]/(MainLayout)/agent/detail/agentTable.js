@@ -10,6 +10,7 @@ const AgentTable = ({ data, ...props }) => {
     checkBox: false,
     isOption: true,
     noEdit: true,
+
     optionHead: {
       title: "Detail",
       type: "View",
@@ -18,7 +19,12 @@ const AgentTable = ({ data, ...props }) => {
     },
     column: [
       { title: "Name", apiKey: "name", sortBy: "desc" },
-      { title: "Username", apiKey: "user_name", sortBy: "desc" },
+      {
+        title: "Username",
+        apiKey: "user_name",
+        sortBy: "desc",
+        type: "copy",
+      },
       {
         title: "Mobile",
         apiKey: "phone_number",

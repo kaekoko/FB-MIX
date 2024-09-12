@@ -77,7 +77,13 @@ const TableWarper = (WrappedComponent) => {
             },
             router
           ),
-        { refetchOnWindowFocus: false, refetchOnMount: false, cacheTime: 0 }
+        {
+          cacheTime: 1000 * 60 * 5,
+          staleTime: 1000 * 60 * 5,
+          refetchOnMount: false,
+          refetchOnReconnect: false,
+          refetchOnWindowFocus: false,
+        }
       );
 
       // To use this function in parent

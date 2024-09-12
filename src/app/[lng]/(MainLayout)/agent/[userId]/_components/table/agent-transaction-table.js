@@ -1,8 +1,8 @@
 "use client";
 
-import ShowTable from "@/Components/Table/ShowTable";
+import { useMemo } from "react";
 import TableWarper from "@/Utils/HOC/TableWarper";
-import { useEffect, useMemo } from "react";
+import ShowTable from "@/Components/Table/ShowTable";
 
 const AgentTransactionTable = ({ data, ...props }) => {
   const headerObj = {
@@ -10,7 +10,6 @@ const AgentTransactionTable = ({ data, ...props }) => {
     optionHead: {
       title: "Action",
     },
-
     column: [
       {
         title: "Username",

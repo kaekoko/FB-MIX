@@ -53,14 +53,14 @@ const TopDashSection = () => {
 
   return (
     <section className="dashboard-tiles">
-      <Card className="bg-transparent border">
+      <Card className="border">
         <CardHeader className="d-flex align-items-center pb-3 bg-transparent">
           <div className="fs-4 fw-bold ps-md-3">Dashboard</div>
           <div className="ms-auto">
             {date && <CalenderFilter date={date} setDate={setDate} />}
           </div>
         </CardHeader>
-        <CardBody className="bg-white rounded-3 p-3">
+        <CardBody className="border bg-white rounded-3 rounded-bottom-0 border-bottom-0 p-3">
           <div className="fs-5 mb-2 text-muted">Transaction Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -101,7 +101,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="bg-white p-3">
+        <CardBody className="border bg-white rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3">
           <div className="fs-5 mb-2 text-muted">Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -141,7 +141,7 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Profit")}</h6>
+                    <h6>{t("Win / Loss")}</h6>
                     <h3>{data?.data?.data?.profit}</h3>
                   </div>
                   <div className="icon-box">
@@ -153,7 +153,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="bg-white rounded-bottom rounded-bottom-3 p-3">
+        <CardBody className="border bg-white rounded-3 rounded-top-0 border-top-0 p-3">
           <div className="fs-5 mb-2 text-muted">Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">

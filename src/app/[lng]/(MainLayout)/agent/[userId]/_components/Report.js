@@ -16,7 +16,7 @@ const AgentReport = ({ params: { userId }, activeTab }) => {
       key: "selection",
     },
   ]);
-  const { data, isLoading, refetch } = useQuery(
+  const { data, isFetching, refetch } = useQuery(
     ["userReport"],
     () =>
       request({
@@ -27,16 +27,20 @@ const AgentReport = ({ params: { userId }, activeTab }) => {
           end_date: format(date[0]?.endDate, "yyyy-MM-dd") ?? null,
         },
       }),
-    { refetchOnWindowFocus: false, refetchOnMount: false, cacheTime: 0 }
+    {
+      refetchOnMount: false,
+      cacheTime: 1000 * 60 * 10,
+      staleTime: 1000 * 60 * 10,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    }
   );
 
   useEffect(() => {
     if (activeTab === "4") refetch();
   }, [userId, activeTab, date]);
 
-  console.log(data);
-
-  if (isLoading) return <Loader />;
+  if (isFetching) return <Loader />;
   return (
     <Card className="bg-transparent border">
       <CardHeader className="d-flex align-items-center pb-3 bg-transparent">
