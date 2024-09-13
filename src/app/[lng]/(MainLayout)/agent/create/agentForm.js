@@ -1,4 +1,4 @@
-import { Field, Form, Formik, setFieldValue } from "formik";
+import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import I18NextContext from "@/Helper/I18NextContext";
@@ -48,8 +48,6 @@ const AgentForm = () => {
     alert("Copied password to clipboard");
   };
 
-  console.log(accountData);
-
   return (
     <Formik
       enableReinitialize
@@ -58,8 +56,8 @@ const AgentForm = () => {
         name: "",
         user_name: "",
         phone_number: "",
-        max_single_bet: "",
-        max_mix_bet: "",
+        max_single_bet: Number(accountData?.max_single_bet || 0),
+        max_mix_bet: Number(accountData?.max_mix_bet || 0),
         single_bet_commission: Number(accountData?.single_bet_commission || 0),
         match_count_two: Number(accountData?.match_count_two || 0),
         match_count_three: Number(accountData?.match_count_three || 0),
@@ -74,11 +72,15 @@ const AgentForm = () => {
       }}
       validationSchema={YupObject({
         name: nameSchema,
-        user_name: usernameSchema,
-        phone_number: phoneSchema,
+        user_name: Yup.string().required().max(3).min(3),
+        phone_number: Yup.string().min(6).max(15),
         password: passwordSchema,
-        max_single_bet: Yup.number().required(),
-        max_mix_bet: Yup.number().required(),
+        max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.max_single_bet)),
+        max_mix_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.max_mix_bet)),
         single_bet_commission: Yup.number()
           .required()
           .max(Number(accountData?.single_bet_commission)),
@@ -113,12 +115,15 @@ const AgentForm = () => {
           .required()
           .max(Number(accountData?.match_count_eleven)),
       })}
-      onSubmit={(values, { resetForm }) => {
+      onSubmit={(values, { resetForm, setFieldValue }) => {
         values["user_name"] =
           accountData?.user_name.substring(3) + values["user_name"];
         values["self_agent_id"] = accountData?.id;
         mutate(values);
-        resetForm();
+        setFieldValue(
+          "user_name",
+          values["user_name"].substring(3, values["user_name"].length)
+        );
       }}
     >
       {({ errors, touched, setFieldValue }) => (
@@ -126,7 +131,10 @@ const AgentForm = () => {
           <Row>
             <Col sm="12" md="6">
               <label for="user_name" className="fw-bold">
-                User Name :
+                User Name :{" "}
+                <span className="small text-danger">
+                  Must be 3 characters long!
+                </span>
               </label>
               <div className="position-relative">
                 <div
@@ -141,6 +149,7 @@ const AgentForm = () => {
                   id="user_name"
                   style={{ textIndent: "5.5rem", fontWeight: "bold" }}
                   maxLength={3}
+                  minLength={3}
                   component={ReactstrapInput}
                 />
               </div>

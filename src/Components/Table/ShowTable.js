@@ -286,7 +286,7 @@ const ShowTable = ({
                         {getSubKeysData(tableData[item?.apiKey], item?.subKey)}
                       </>
                     ) : (
-                      <>{tableData[item?.apiKey]}</>
+                      <>{tableData[item?.apiKey] ?? "-"}</>
                     )}
                   </td>
                 ))}

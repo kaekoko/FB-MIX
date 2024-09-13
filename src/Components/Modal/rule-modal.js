@@ -13,7 +13,7 @@ const RuleModalDialog = () => {
   const isLoggedIn = !!getCookie("uat");
   const [isOpen, setIsOpen] = useState(localStorage.getItem("rule_toggle"));
 
-  const { data, isLoading, isFetching } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ["agentRules"],
     queryFn: () => request({ url: agentRulesAPI }).then((res) => res?.data),
     staleTime: 1000 * 60 * 10,
@@ -21,7 +21,7 @@ const RuleModalDialog = () => {
     enabled: isLoggedIn && isOpen === "true",
   });
 
-  if (isLoading || isFetching) return <Loader />;
+  if (isFetching) return <Loader />;
   return (
     <Modal
       isOpen={isOpen === "true" && isLoggedIn}

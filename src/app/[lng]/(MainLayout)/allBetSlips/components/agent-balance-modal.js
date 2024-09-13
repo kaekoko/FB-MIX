@@ -74,19 +74,28 @@ const BalanceModal = ({ refetch, url, isAgent, ...rest }) => {
                   </label>
                 </div>
 
-                <Field
-                  type="number"
-                  name="amount"
-                  id="amount"
-                  placeholder="Enter amount"
-                  className="mt-3"
-                  component={ReactstrapInput}
-                />
+                <div className="mt-3">
+                  <label>
+                    Current balance :{" "}
+                    {Intl.NumberFormat("en-US", {
+                      currency: "MMK",
+                      style: "currency",
+                    }).format(Number(data?.balance) ?? 0)}
+                  </label>
+                  <Field
+                    type="number"
+                    name="amount"
+                    id="amount"
+                    placeholder="Enter amount"
+                    component={ReactstrapInput}
+                  />
+                </div>
 
                 <Btn
                   className="btn btn-theme ms-auto mt-4"
                   type="submit"
                   title="Save"
+                  disabled={isLoading || !open}
                   loading={isLoading}
                 />
               </Form>

@@ -1,4 +1,5 @@
 "use client";
+import RuleModalDialog from "@/Components/Modal/rule-modal";
 import dynamic from "next/dynamic";
 const MainDashboard = dynamic(
   () => import("../../../../Components/Dashboard"),
@@ -6,7 +7,12 @@ const MainDashboard = dynamic(
 );
 
 const Dashboard = () => {
-  return <MainDashboard />;
+  return (
+    <>
+      <RuleModalDialog />
+      <MainDashboard />
+    </>
+  );
 };
 
 export default Dashboard;

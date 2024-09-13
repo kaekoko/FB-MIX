@@ -54,13 +54,13 @@ const UserFormCreate = () => {
         name: "",
         user_name: "",
         phone_number: "",
-        max_single_bet: "",
-        max_mix_bet: "",
+        max_single_bet: Number(accountData?.max_single_bet || 0),
+        max_mix_bet: Number(accountData?.max_mix_bet || 0),
       }}
       validationSchema={YupObject({
         name: nameSchema,
-        user_name: usernameSchema,
-        phone_number: phoneSchema,
+        user_name: Yup.string().required().max(6).min(6),
+        phone_number: Yup.string().min(6).max(15),
         password: passwordSchema,
         max_single_bet: Yup.number().required(),
         max_mix_bet: Yup.number().required(),
@@ -80,7 +80,10 @@ const UserFormCreate = () => {
           <Row>
             <Col sm="12" md="6">
               <label for="user_name" className="fw-bold">
-                User Name :
+                User Name :{" "}
+                <span className="small text-danger">
+                  Must be 6 characters long!
+                </span>
               </label>
               <div className="position-relative">
                 <div
@@ -95,6 +98,7 @@ const UserFormCreate = () => {
                   id="user_name"
                   style={{ textIndent: "5.5rem", fontWeight: "bold" }}
                   maxLength={6}
+                  minLength={6}
                   component={ReactstrapInput}
                 />
               </div>
