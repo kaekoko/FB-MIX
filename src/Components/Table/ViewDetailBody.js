@@ -8,7 +8,6 @@ const ViewDetailBody = ({ fullObj }) => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
   const { convertCurrency } = useContext(SettingContext);
-  console.log(fullObj);
 
   return (
     <>
@@ -31,7 +30,7 @@ const ViewDetailBody = ({ fullObj }) => {
             } w-100 text-center d-flex justify-content-center gap-2 align-items-center rounded-3`}
           >
             {fullObj?.single_bets?.[0]?.upcoming?.home_name}{" "}
-            {fullObj?.single_bets?.[0]?.bet_choice === "home" && (
+            {fullObj?.single_bets?.[0]?.upcoming?.homeupper == 1 && (
               <span
                 className="badge-info rounded-3"
                 style={{ fontSize: "11px", padding: "3px" }}
@@ -62,7 +61,7 @@ const ViewDetailBody = ({ fullObj }) => {
             } w-100 text-center d-flex justify-content-center align-items-center rounded-3`}
           >
             {fullObj?.single_bets?.[0]?.upcoming?.away_name}
-            {fullObj?.single_bets?.[0]?.bet_choice === "away" && (
+            {fullObj?.single_bets?.[0]?.upcoming?.homeupper == 0 && (
               <span
                 className="badge-info rounded-3"
                 style={{ fontSize: "11px", padding: "3px" }}

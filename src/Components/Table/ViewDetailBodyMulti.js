@@ -31,7 +31,7 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
                 } w-100 text-center d-flex justify-content-center gap-2 align-items-center rounded-3`}
               >
                 {a.upcoming?.home_name}{" "}
-                {a.bet_choice === "home" && (
+                {a.upcoming?.homeupper === 1 && (
                   <span
                     className="badge-info rounded-3"
                     style={{ fontSize: "11px", padding: "3px" }}
@@ -57,7 +57,7 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
                 } w-100 text-center d-flex justify-content-center align-items-center rounded-3`}
               >
                 {a.upcoming?.away_name}
-                {a.bet_choice === "away" && (
+                {a.upcoming?.homeupper === 0 && (
                   <span
                     className="badge-info rounded-3"
                     style={{ fontSize: "11px", padding: "3px" }}

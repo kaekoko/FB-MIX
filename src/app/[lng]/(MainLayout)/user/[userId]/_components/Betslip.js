@@ -24,9 +24,9 @@ const UserBetslip = ({ params, activeTab }) => {
         {({ values, setFieldValue }) => (
           <Form>
             <AgentBetslipTable
-              moduleName="User Betslip"
               url={url}
               dateRange
+              moduleName="User Betslip"
               paramsProps={{
                 category_ids: params.userId,
               }}
