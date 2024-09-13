@@ -3,8 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   env: {
-    // API_PROD_URL: "https://laravel.pixelstrap.net/fastkart/api/",
-    API_PROD_URL: "https://sport.myvipmm.com/api",
+    API_PROD_URL: "https://api.topwin.club/api",
   },
   redirects: async () => {
     return [
