@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
   env: {
     API_PROD_URL: "https://api.topwin.club/api/",
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: "6LeNf0UqAAAAAHutrYvf5pW3--0U9wIqw4UqEgDN",
+    RECAPTCHA_SECRET_KEY: "6LeNf0UqAAAAAFJywzcuJCJg-FO8UAz1JHko4aoe",
   },
   redirects: async () => {
     return [

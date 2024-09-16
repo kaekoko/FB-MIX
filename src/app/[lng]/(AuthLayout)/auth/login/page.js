@@ -1,5 +1,7 @@
 "use client";
+
 import { ReactstrapInput } from "@/Components/ReactstrapFormik";
+import ReCaptcha from "@/Components/Setting/Recaptcha";
 import ShowBox from "@/Elements/Alerts&Modals/ShowBox";
 import Btn from "@/Elements/Buttons/Btn";
 import I18NextContext from "@/Helper/I18NextContext";
@@ -14,6 +16,7 @@ import {
 import { useTranslation } from "@/app/i18n/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { Col } from "reactstrap";
 
 const Login = () => {
@@ -21,13 +24,18 @@ const Login = () => {
   const { t } = useTranslation(i18Lang, "common");
   const [showBoxMessage, setShowBoxMessage] = useState();
   const { mutate, isLoading } = useHandleLogin(setShowBoxMessage);
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleCaptchaVerification = (value) => {
+    setCaptchaValue(value);
+  };
 
   return (
     <div className="box-wrapper">
       <ShowBox showBoxMessage={showBoxMessage} />
       <LoginBoxWrapper>
         <div className="log-in-title">
-          <h3>{t("Football Website")}</h3>
+          <h3 className="fs-2">{t("TOPWIN Club")}</h3>
           <h5>{t("LogInYourAccount")}</h5>
         </div>
         <div className="input-box">
@@ -40,7 +48,13 @@ const Login = () => {
               user_name: nameSchema,
               password: passwordSchema,
             })}
-            onSubmit={mutate}
+            onSubmit={(values) => {
+              if (!captchaValue) {
+                toast.error("Please complete the captcha!");
+                return;
+              }
+              mutate(values);
+            }}
           >
             {({ errors, touched, setFieldValue }) => (
               <Form className="row g-2">
@@ -76,6 +90,8 @@ const Login = () => {
                     loading={Number(isLoading)}
                   />
                 </Col>
+
+                <ReCaptcha onVerify={handleCaptchaVerification} />
               </Form>
             )}
           </Formik>

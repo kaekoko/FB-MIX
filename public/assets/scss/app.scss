@@ -6,16 +6,16 @@
     Author URI: https://themeforest.net/user/pixelstrap
 ----------------------------------------------------------------------------------- !*/
 
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~react-toastify/dist/ReactToastify.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~react-toastify/dist/ReactToastify.min.css";
 
-@import 'slick-carousel/slick/slick.css';
-@import 'slick-carousel/slick/slick-theme.css';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
-@import '~react-date-range/dist/styles.css'; // main style file
-@import '~react-date-range/dist/theme/default.css'; // theme css file
+@import "~react-date-range/dist/styles.css"; // main style file
+@import "~react-date-range/dist/theme/default.css"; // theme css file
 
-@import './style.scss';
+@import "./style.scss";
 
 .App-header {
   background-color: #282c34;
