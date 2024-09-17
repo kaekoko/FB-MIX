@@ -118,6 +118,65 @@ const TableTitle = ({
           )}
         </>
       )}
+
+      {filterHeader?.isReportDetail && data && (
+        <>
+          {data?.data && (
+            <div className="d-flex gap-3">
+              {data?.data?.totalStake ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Stake : </span>
+                    <span>{Number(data?.data?.totalStake || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.totalTax ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Tax : </span>
+                    <span>{Number(data?.data?.totalTax || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.totalCommission ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Commission : </span>
+                    <span>{Number(data?.data?.totalCommission || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.totalWin ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Reward : </span>
+                    <span>{Number(data?.data?.win_lose || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.totalWinLose ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total W/L : </span>
+                    <span>{Number(data?.data?.total || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

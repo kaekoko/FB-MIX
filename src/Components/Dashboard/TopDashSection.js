@@ -8,7 +8,6 @@ import {
   RiWalletLine,
 } from "react-icons/ri";
 import { Card, CardHeader, CardBody, Col, Container, Row } from "reactstrap";
-import SettingContext from "../../Helper/SettingContext";
 import request from "../../Utils/AxiosUtils";
 import { AgentdashboardAPI } from "../../Utils/AxiosUtils/API";
 import I18NextContext from "@/Helper/I18NextContext";
@@ -62,7 +61,60 @@ const TopDashSection = () => {
             {date && <CalenderFilter date={date} setDate={setDate} />}
           </div>
         </CardHeader>
+
         <CardBody className="border bg-white rounded-3 rounded-bottom-0 border-bottom-0 p-3">
+          <div className="fs-5 mb-2 text-muted">User Management</div>
+          <Container fluid={true} className="p-sm-0">
+            <Row className="g-3 py-2">
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total User")}</h6>
+                    <h3>{data?.data?.data?.total_user}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiGroupLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Agent")}</h6>
+                    <h3>{data?.data?.data?.total_agent}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiUser2Fill />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Current Balance")}</h6>
+                    <h3>{data?.data?.data?.Current_balance}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Credit")}</h6>
+                    <h3>{data?.data?.data?.Total_credit}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiPercent />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </CardBody>
+
+        <CardBody className="border bg-white rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3">
           <div className="fs-5 mb-2 text-muted">Transaction Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -155,7 +207,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border bg-white rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3">
+        <CardBody className="border bg-white rounded-3 rounded-top-0 border-top-0 p-3">
           <div className="fs-5 mb-2 text-muted">Self Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -200,36 +252,6 @@ const TopDashSection = () => {
                   </div>
                   <div className="icon-box">
                     <FiPercent />
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </CardBody>
-
-        <CardBody className="border bg-white rounded-3 rounded-top-0 border-top-0 p-3">
-          <div className="fs-5 mb-2 text-muted">User Management</div>
-          <Container fluid={true} className="p-sm-0">
-            <Row className="g-3 py-2">
-              <Col xl={3} sm={6}>
-                <div className="card-tiles">
-                  <div>
-                    <h6>{t("Total User")}</h6>
-                    <h3>{data?.data?.data?.total_user}</h3>
-                  </div>
-                  <div className="icon-box">
-                    <RiGroupLine />
-                  </div>
-                </div>
-              </Col>
-              <Col xl={3} sm={6}>
-                <div className="card-tiles">
-                  <div>
-                    <h6>{t("Total Agent")}</h6>
-                    <h3>{data?.data?.data?.total_agent}</h3>
-                  </div>
-                  <div className="icon-box">
-                    <RiUser2Fill />
                   </div>
                 </div>
               </Col>

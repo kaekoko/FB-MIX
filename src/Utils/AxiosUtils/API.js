@@ -119,3 +119,7 @@ export const selfCommissionAPI = "/agent/user/self/commission/history";
 //USER LIST
 export const agentEachAgentList = "/agent/byagent/agentList";
 export const agentEachUserList = "/agent/byagent/userList";
+
+//REPORT
+export const agentDailyReport = "/agent/daily";
+export const agentReportUsernameApi = "/agent/report/agent";

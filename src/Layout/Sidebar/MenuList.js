@@ -6,6 +6,7 @@ import BadgeContext from "../../Helper/BadgeContext";
 import SettingContext from "../../Helper/SettingContext";
 import I18NextContext from "@/Helper/I18NextContext";
 import { useTranslation } from "@/app/i18n/client";
+import AccountContext from "@/Helper/AccountContext";
 
 const MenuList = ({ menu, level, setActiveMenu, activeMenu }) => {
   const { i18Lang } = useContext(I18NextContext);
@@ -13,6 +14,7 @@ const MenuList = ({ menu, level, setActiveMenu, activeMenu }) => {
   const [newMenu, setNewMenu] = useState(menu);
   const { searchSidebarMenu, setSearchSidebarMenu } =
     useContext(SettingContext);
+  const { accountData } = useContext(AccountContext);
   const { state } = useContext(BadgeContext);
   const [parentMenu, setParentMenu] = useState("");
   const router = usePathname();
@@ -71,7 +73,11 @@ const MenuList = ({ menu, level, setActiveMenu, activeMenu }) => {
           <>
             {mainMenu.path ? (
               <Link
-                href={mainMenu.path}
+                href={
+                  mainMenu.isType
+                    ? mainMenu.path + "/" + accountData?.user_name
+                    : mainMenu.path
+                }
                 className={`sidebar-link sidebar-title link-nav ${
                   parentMenu === mainMenu.title ? "active" : ""
                 }`}

@@ -136,20 +136,27 @@ const MENUITEMS = [
       },
     ],
   },
-  // {
-  //   title: "Report",
-  //   displayTitle: "Report",
-  //   icon: <RiListUnordered />,
-  //   type: "sub",
-  //   children: [
-  //     {
-  //       title: "User W/L Detail",
-  //       path: "/report",
-  //       displayTitle: "winlose/detail",
-  //       permission: [""],
-  //     },
-  //   ],
-  // },
+  {
+    title: "Report",
+    displayTitle: "Report",
+    icon: <RiListUnordered />,
+    type: "sub",
+    children: [
+      {
+        title: "Agent Report",
+        path: "/report/agent",
+        displayTitle: "Agent Report",
+        permission: [""],
+        isType: true,
+      },
+      {
+        title: "Daily Agent Report",
+        path: "/report/daily/agent",
+        displayTitle: "Daily Agent Report",
+        permission: [""],
+      },
+    ],
+  },
 ];
 
 export default MENUITEMS;
