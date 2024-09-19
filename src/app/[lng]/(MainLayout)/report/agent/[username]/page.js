@@ -11,7 +11,7 @@ const AgentReportWithUsername = ({ params: { username } }) => {
     <AgentReportUserNameTable
       url={url}
       dateRange
-      filterHeader={{ noSearch: true }}
+      filterHeader={{ noSearch: true, isReportDetail: true }}
     />
   );
 };

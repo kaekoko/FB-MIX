@@ -214,12 +214,7 @@ const ShowTable = ({
                         name={tableData}
                       />
                     ) : item.type == "price" ? (
-                      <>
-                        {Intl.NumberFormat("en", {
-                          currency: "MMK",
-                          style: "currency",
-                        }).format(tableData[item?.apiKey])}
-                      </>
+                      <>{tableData[item?.apiKey]}</>
                     ) : item.type == "rating" ? (
                       <Rating
                         initialValue={tableData.rating}

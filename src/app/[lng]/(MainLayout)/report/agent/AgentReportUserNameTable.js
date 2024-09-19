@@ -4,7 +4,7 @@ import ShowTable from "@/Components/Table/ShowTable";
 import TableWarper from "@/Utils/HOC/TableWarper";
 
 const AgentReportUsernameTable = ({ data, ...props }) => {
-  console.log(props);
+  console.log(data);
 
   const headerObj = {
     checkBox: false,
