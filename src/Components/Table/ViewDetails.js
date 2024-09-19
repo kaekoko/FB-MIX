@@ -11,7 +11,7 @@ const ViewDetails = ({ fullObj, tableData, refetch }) => {
 
   const redirectLink = () => {
     const userId = fullObj?.id;
-    const username = fullObj?.user_name;
+    const username = fullObj?.username || fullObj?.user_name;
     if (tableData.redirectUrl === "/report/agent/") {
       router.push(`${tableData?.redirectUrl}/${username}`);
     } else {

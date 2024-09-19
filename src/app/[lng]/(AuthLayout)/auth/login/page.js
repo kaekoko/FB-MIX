@@ -1,11 +1,11 @@
 "use client";
 
+import "./captcha.css";
 import { ReactstrapInput } from "@/Components/ReactstrapFormik";
-import ReCaptcha from "@/Components/Setting/Recaptcha";
+import ReCaptcha from "react-numeric-captcha";
 import ShowBox from "@/Elements/Alerts&Modals/ShowBox";
 import Btn from "@/Elements/Buttons/Btn";
 import I18NextContext from "@/Helper/I18NextContext";
-import SettingContext from "@/Helper/SettingContext";
 import LoginBoxWrapper from "@/Utils/HOC/LoginBoxWrapper";
 import useHandleLogin from "@/Utils/Hooks/Auth/useLogin";
 import {
@@ -91,7 +91,10 @@ const Login = () => {
                   />
                 </Col>
 
-                <ReCaptcha onVerify={handleCaptchaVerification} />
+                <ReCaptcha
+                  onChange={setCaptchaValue}
+                  placeholder="Insert captcha" // optional
+                />
               </Form>
             )}
           </Formik>

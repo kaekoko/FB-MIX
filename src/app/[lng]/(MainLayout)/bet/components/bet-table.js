@@ -39,11 +39,11 @@ const BetSlipTable = ({ data, ...props }) => {
         <div
           className={`badge py-1 px-3 ${
             element?.status === "pending"
-              ? "badge-warning"
+              ? "text-bg-secondary"
               : element?.status === "win"
-              ? "badge-success"
+              ? "text-bg-success"
               : element.status === "loss"
-              ? "badge-info"
+              ? "text-bg-danger"
               : "badge-danger"
           }`}
         >
@@ -70,8 +70,6 @@ const BetSlipTable = ({ data, ...props }) => {
     });
   }, [headerObj?.data]);
   headerObj.data = headerObj ? orders : [];
-
-  console.log(data);
 
   if (!data) return null;
   return (

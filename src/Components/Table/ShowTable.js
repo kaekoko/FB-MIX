@@ -41,9 +41,9 @@ const ShowTable = ({
   const [colSpann, setColSpann] = useState();
   const router = useRouter();
   const { onOpen, setData } = useAgentBalanceModal();
-  const orignalDataLength = headerData?.data?.filter(
-    (elem) => elem.system_reserve == "1"
-  ).length;
+  const orignalDataLength =
+    headerData?.data?.length &&
+    headerData?.data?.filter((elem) => elem.system_reserve == "1").length;
   /* Select All Data */
   const handleChange = (result) => {
     if (isCheck?.includes(result.id)) {
@@ -214,12 +214,7 @@ const ShowTable = ({
                         name={tableData}
                       />
                     ) : item.type == "price" ? (
-                      <>
-                        {Intl.NumberFormat("en", {
-                          currency: "MMK",
-                          style: "currency",
-                        }).format(tableData[item?.apiKey])}
-                      </>
+                      <>{tableData[item?.apiKey]}</>
                     ) : item.type == "rating" ? (
                       <Rating
                         initialValue={tableData.rating}

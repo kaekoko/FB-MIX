@@ -86,6 +86,8 @@ const TableWarper = (WrappedComponent) => {
         }
       );
 
+      console.log(data);
+
       // To use this function in parent
       useImperativeHandle(ref, () => ({
         call() {
@@ -186,6 +188,7 @@ const TableWarper = (WrappedComponent) => {
             </CardBody>
             {filterHeader?.noPagination !== true && (
               <TableBottom
+                filterHeader={filterHeader}
                 current_page={
                   userIdParams
                     ? data?.data?.transactions?.current_page

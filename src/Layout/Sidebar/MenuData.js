@@ -144,10 +144,9 @@ const MENUITEMS = [
     children: [
       {
         title: "Agent Report",
-        path: "/report/agent",
+        path: "/report/agent/main",
         displayTitle: "Agent Report",
         permission: [""],
-        isType: true,
       },
       {
         title: "Daily Agent Report",

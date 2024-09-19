@@ -115,12 +115,7 @@ const RightNav = ({ setMode, setOpenSearchBar }) => {
           }}
           className="btn btn-outline fw-bold"
         >
-          <span>
-            {Intl.NumberFormat("en-US", {
-              currency: "MMK",
-              style: "currency",
-            }).format(data?.data?.balance || accountData?.balance || 0)}
-          </span>
+          <span>{data?.data?.balance || accountData?.balance || 0}</span>
 
           {!isFetching ? (
             <RiRefreshLine size={20} className="ms-3 text-black" />

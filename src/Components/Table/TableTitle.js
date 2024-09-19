@@ -157,7 +157,7 @@ const TableTitle = ({
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
                     <span>Total Reward : </span>
-                    <span>{Number(data?.data?.win_lose || 0)}</span>
+                    <span>{Number(data?.data?.totalWin || 0)}</span>
                   </div>
                 </Btn>
               ) : (
@@ -167,7 +167,7 @@ const TableTitle = ({
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
                     <span>Total W/L : </span>
-                    <span>{Number(data?.data?.total || 0)}</span>
+                    <span>{Number(data?.data?.totalWinLose || 0)}</span>
                   </div>
                 </Btn>
               ) : (
