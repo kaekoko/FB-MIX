@@ -32,7 +32,7 @@ const AgentEachAgentList = ({ params, activeTab }) => {
               filterHeader={{
                 noSearch: true,
                 onlyNoPageDrop: true,
-                filterSelect: true,
+                filterSelect: false,
               }}
             />
           </Form>
