@@ -2,14 +2,14 @@
 
 import ShowTable from "@/Components/Table/ShowTable";
 import TableWarper from "@/Utils/HOC/TableWarper";
+import { useMemo } from "react";
 
-const AgentReportUsernameTable = ({ data, ...props }) => {
-  console.log(data);
-
+const AgentReportUsernameTable = ({ type, data, ...props }) => {
   const headerObj = {
     checkBox: false,
-    isOption: true,
+    isOption: type === "user" ? false : true,
     noEdit: false,
+    isSerialNo: false,
     optionHead: {
       title: "Action",
       type: "View",
@@ -17,7 +17,7 @@ const AgentReportUsernameTable = ({ data, ...props }) => {
     },
     column: [
       {
-        title: "Agent User Name",
+        title: type === "user" ? "User Name" : "Agent User Name",
         apiKey: "username",
         sortBy: "desc",
       },
@@ -55,6 +55,14 @@ const AgentReportUsernameTable = ({ data, ...props }) => {
     ],
     data: data || [],
   };
+
+  let orders = useMemo(() => {
+    if (type === "user") {
+      return headerObj?.data?.userReports?.filter((element) => element);
+    }
+    return headerObj?.data?.agentReport?.filter((element) => element);
+  }, [headerObj?.data]);
+  headerObj.data = headerObj ? orders : [];
 
   if (!data) return null;
   return (
