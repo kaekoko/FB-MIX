@@ -6,14 +6,14 @@ import { useTranslation } from "@/app/i18n/client";
 
 const Footer = () => {
   const { i18Lang } = useContext(I18NextContext);
-  const { t } = useTranslation(i18Lang, 'common');
-  const { state } = useContext(SettingContext)
+  const { t } = useTranslation(i18Lang, "common");
+  const { state } = useContext(SettingContext);
   return (
     <Container fluid={true}>
       <footer className="footer">
         <Row>
           <Col md="12" className="footer-copyright text-center">
-          <p className="mb-0">{t(state?.setCopyRight?state?.setCopyRight:'© Pixelstrap')}</p>
+            <p className="mb-0">© Topwin. All right reserved.</p>
           </Col>
         </Row>
       </footer>

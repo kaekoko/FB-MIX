@@ -7,13 +7,13 @@ import { useMemo } from "react";
 const AgentReportUsernameTable = ({ type, data, ...props }) => {
   const headerObj = {
     checkBox: false,
-    isOption: type === "user" ? false : true,
+    isOption: true,
     noEdit: false,
     isSerialNo: false,
     optionHead: {
       title: "Action",
       type: "View",
-      redirectUrl: "/report/agent/",
+      redirectUrl: type === "user" ? "/report/agent/user/" : "/report/agent/",
     },
     column: [
       {
