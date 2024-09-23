@@ -124,3 +124,4 @@ export const agentEachUserList = "/agent/byagent/userList";
 export const agentDailyReport = "/agent/daily";
 export const agentReportUsernameApi = "/agent/report/agent";
 export const agentReportMain = "/agent/main/agent/report";
+export const agentUserByOneSlips = "/agent/user/report/byOneSlip";

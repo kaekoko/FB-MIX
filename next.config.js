@@ -29,7 +29,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "laravel.pixelstrap.net",
+        hostname: "api.topwin.club",
       },
     ],
   },

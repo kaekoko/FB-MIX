@@ -53,7 +53,7 @@ const TableTitle = ({
       {filterHeader?.isDetail && data && (
         <>
           {data?.data && (
-            <div className="d-flex gap-3">
+            <div className="d-flex flex-wrap gap-3">
               {data?.data?.total_stake ? (
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
@@ -122,7 +122,7 @@ const TableTitle = ({
       {filterHeader?.isReportDetail && data && (
         <>
           {data?.data && (
-            <div className="d-flex gap-3">
+            <div className="d-flex flex-wrap gap-3">
               {data?.data?.totalStake ? (
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">

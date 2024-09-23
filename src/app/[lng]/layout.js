@@ -4,16 +4,12 @@ import TanstackWrapper from "@/Layout/TanstackWrapper";
 import { ToastContainer } from "react-toastify";
 
 export async function generateMetadata() {
-  // fetch data
-  const settingData = await fetch(`${process.env.API_PROD_URL}settings`)
-    .then((res) => res.json())
-    .catch((err) => console.log("err", err));
   return {
     metadataBase: new URL(process.env.API_PROD_URL),
-    title: settingData?.values?.general?.site_title,
-    description: settingData?.values?.general?.site_tagline,
+    title: "Topwin | Agent Dashboard",
+    description: "Topwin Bet",
     icons: {
-      icon: settingData?.values?.general?.favicon_image?.original_url,
+      icon: "https://api.topwin.club/public/images/logo/favicon.png",
       link: {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Public+Sans&display=swap",
