@@ -3,30 +3,34 @@ import { Input } from "reactstrap";
 import { dateFormate } from "../../Utils/CustomFunctions/DateFormate";
 import CloseDateRange from "./CloseDateRange";
 import useOutsideDropdown from "../../Utils/Hooks/CustomHooks/useOutsideDropdown";
+import { format } from "date-fns";
 
 const CalenderFilter = ({ date, setDate }) => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useOutsideDropdown();
-  const enableDatePicker = () => {
-    setIsComponentVisible((prev) => !prev);
+  const handleDatePicker = (e, type) => {
+    e.preventDefault();
+    setDate((prev) => {
+      const newDate = [...prev];
+      newDate[0][type] = new Date(e.target.value);
+      return newDate;
+    });
   };
+
+  console.log(date);
+
   return (
-    <div className="calender-box ms-auto" ref={ref}>
+    <div className="calender-box ms-auto">
       <Input
-        type="text"
-        value={date[0]?.startDate ? dateFormate(date[0]?.startDate, true) : ""}
-        placeholder="YYYY-MM-DD"
-        onClick={() => enableDatePicker("startDate")}
-        readOnly
+        type="date"
+        value={format(date[0].startDate, "yyyy-MM-dd")}
+        onChange={(e) => handleDatePicker(e, "startDate")}
       />
       <Input
-        type="text"
-        value={date[0]?.endDate ? dateFormate(date[0]?.endDate, true) : ""}
-        placeholder="YYYY-MM-DD"
-        onClick={() => enableDatePicker("endDate")}
-        readOnly
+        type="date"
+        value={format(date[0].endDate, "yyyy-MM-dd")}
+        onChange={(e) => handleDatePicker(e, "endDate")}
       />
-      {isComponentVisible && (
+
+      {/* {isComponentVisible && (
         <DateRangePicker
           onChange={(item) => setDate([item.selection])}
           showSelectionPreview={true}
@@ -43,7 +47,7 @@ const CalenderFilter = ({ date, setDate }) => {
           startDatePlaceholder="Start Date"
           direction="horizontal"
         />
-      )}
+      )} */}
     </div>
   );
 };

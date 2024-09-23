@@ -50,8 +50,12 @@
 }
 
 .rnc-input {
-  border: none;
+  border: 1px solid red;
   padding: 10px 6px;
   font-size: inherit;
   font-family: inherit;
+}
+
+.rnc-input:focus {
+  border: none;
 }

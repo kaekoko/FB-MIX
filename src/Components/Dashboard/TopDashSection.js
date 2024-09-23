@@ -103,7 +103,11 @@ const TopDashSection = () => {
                 <div className="card-tiles">
                   <div>
                     <h6>{t("Total Credit")}</h6>
-                    <h3>{data?.data?.data?.Total_credit}</h3>
+                    <h3>
+                      {Math.round(
+                        Number(data?.data?.data?.Total_credit || 0) * 100
+                      ) / 100}
+                    </h3>
                   </div>
                   <div className="icon-box">
                     <FiPercent />
@@ -196,7 +200,9 @@ const TopDashSection = () => {
                 <div className="card-tiles">
                   <div>
                     <h6>{t("Win / Loss")}</h6>
-                    <h3>{data?.data?.data?.profit}</h3>
+                    <h3>
+                      {Math.round(Number(data?.data?.data?.profit) * 100) / 100}
+                    </h3>
                   </div>
                   <div className="icon-box">
                     <FiPercent />

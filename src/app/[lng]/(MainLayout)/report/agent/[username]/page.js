@@ -3,6 +3,7 @@
 import { agentReportUsernameApi } from "@/Utils/AxiosUtils/API";
 import AgentReportUserNameTable from "./AgentReportUserNameTable";
 import { useState } from "react";
+import UserReportUserNameTable from "./UserReportUserNameTable";
 
 const AgentReportWithUsername = ({ params: { username } }) => {
   const [url, setUrl] = useState(agentReportUsernameApi + "/" + username);
@@ -20,9 +21,8 @@ const AgentReportWithUsername = ({ params: { username } }) => {
           isReportDetail: true,
         }}
       />
-      <AgentReportUserNameTable
+      <UserReportUserNameTable
         url={url}
-        type="user"
         moduleName="User Report"
         filterHeader={{
           noSearch: true,

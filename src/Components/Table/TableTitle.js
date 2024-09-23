@@ -22,6 +22,7 @@ const TableTitle = ({
   const { t } = useTranslation(i18Lang, "common");
   const router = useRouter();
   const pathname = usePathname();
+
   return (
     <div className="title-header option-title">
       <h5>
@@ -133,16 +134,6 @@ const TableTitle = ({
               ) : (
                 <></>
               )}
-              {data?.data?.totalTax ? (
-                <Btn className="btn-theme btn-sm">
-                  <div className="d-flex gap-1 fw-bold">
-                    <span>Total Tax : </span>
-                    <span>{Number(data?.data?.totalTax || 0)}</span>
-                  </div>
-                </Btn>
-              ) : (
-                <></>
-              )}
               {data?.data?.totalCommission ? (
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
@@ -168,6 +159,34 @@ const TableTitle = ({
                   <div className="d-flex gap-1 fw-bold">
                     <span>Total W/L : </span>
                     <span>{Number(data?.data?.totalWinLose || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_player_win_lose ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Player W/L : </span>
+                    <span>
+                      {Math.round(
+                        Number(data?.data?.total_player_win_lose || 0) * 100
+                      ) / 100}
+                    </span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_agent_win_lose ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Agent W/L : </span>
+                    <span>
+                      {Math.round(
+                        Number(data?.data?.total_agent_win_lose || 0) * 100
+                      ) / 100}
+                    </span>
                   </div>
                 </Btn>
               ) : (

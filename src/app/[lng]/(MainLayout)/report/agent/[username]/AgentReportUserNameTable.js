@@ -13,26 +13,21 @@ const AgentReportUsernameTable = ({ type, data, ...props }) => {
     optionHead: {
       title: "Action",
       type: "View",
-      redirectUrl: type === "user" ? "/report/agent/user/" : "/report/agent/",
+      redirectUrl: "/report/agent/",
     },
     column: [
       {
-        title: type === "user" ? "User Name" : "Agent User Name",
+        title: "Agent User Name",
         apiKey: "username",
         sortBy: "desc",
       },
       {
-        title: "Stake",
+        title: "Bet Amount",
         apiKey: "stake_total",
         type: "price",
         sortBy: "desc",
       },
-      {
-        title: "Tax",
-        apiKey: "tax_total",
-        type: "price",
-        sortBy: "desc",
-      },
+
       {
         title: "Commission",
         apiKey: "commission_total",
@@ -47,8 +42,14 @@ const AgentReportUsernameTable = ({ type, data, ...props }) => {
         type: "price",
       },
       {
-        title: "Win / Lose",
-        apiKey: "win_lose_total",
+        title: "Player W/L",
+        apiKey: "player_win_lose",
+        sortBy: "desc",
+        type: "price",
+      },
+      {
+        title: "Agent W/L",
+        apiKey: "agent_win_lose",
         sortBy: "desc",
         type: "price",
       },
@@ -57,10 +58,15 @@ const AgentReportUsernameTable = ({ type, data, ...props }) => {
   };
 
   let orders = useMemo(() => {
-    if (type === "user") {
-      return headerObj?.data?.userReports?.filter((element) => element);
-    }
-    return headerObj?.data?.agentReport?.filter((element) => element);
+    return headerObj?.data?.agentReport?.filter((element) => {
+      element.player_win_lose = element.player_win_lose
+        ? Math.round(element.player_win_lose * 100) / 100
+        : element.player_win_lose;
+      element.agent_win_lose = element.agent_win_lose
+        ? Math.round(element.agent_win_lose * 100) / 100
+        : element.agent_win_lose;
+      return element;
+    });
   }, [headerObj?.data]);
   headerObj.data = headerObj ? orders : [];
 

@@ -2,6 +2,7 @@
 
 import ShowTable from "@/Components/Table/ShowTable";
 import TableWarper from "@/Utils/HOC/TableWarper";
+import { useMemo } from "react";
 
 const AgentMainReportTable = ({ data, ...props }) => {
   console.log(data);
@@ -22,17 +23,12 @@ const AgentMainReportTable = ({ data, ...props }) => {
         sortBy: "desc",
       },
       {
-        title: "Stake",
+        title: "Bet Amount",
         apiKey: "stake_total",
         type: "price",
         sortBy: "desc",
       },
-      {
-        title: "Tax",
-        apiKey: "tax_total",
-        type: "price",
-        sortBy: "desc",
-      },
+
       {
         title: "Commission",
         apiKey: "commission_total",
@@ -47,14 +43,33 @@ const AgentMainReportTable = ({ data, ...props }) => {
         type: "price",
       },
       {
-        title: "Win / Lose",
-        apiKey: "win_lose_total",
+        title: "Player W/L",
+        apiKey: "player_win_lose",
+        sortBy: "desc",
+        type: "price",
+      },
+      {
+        title: "Agent W/L",
+        apiKey: "agent_win_lose",
         sortBy: "desc",
         type: "price",
       },
     ],
     data: data || [],
   };
+
+  let orders = useMemo(() => {
+    return headerObj?.data?.filter((element) => {
+      element.player_win_lose = element.player_win_lose
+        ? Math.round(element.player_win_lose * 100) / 100
+        : element.player_win_lose;
+      element.agent_win_lose = element.agent_win_lose
+        ? Math.round(element.agent_win_lose * 100) / 100
+        : element.agent_win_lose;
+      return element;
+    });
+  }, [headerObj?.data]);
+  headerObj.data = headerObj ? orders : [];
 
   if (!data) return null;
   return (
