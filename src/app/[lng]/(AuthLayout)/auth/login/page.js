@@ -57,7 +57,7 @@ const Login = () => {
             }}
           >
             {({ errors, touched, setFieldValue }) => (
-              <Form className="row g-2">
+              <Form className="row gap-2">
                 <Col sm="12">
                   <Field
                     name="user_name"
@@ -66,7 +66,8 @@ const Login = () => {
                     className="form-control"
                     id="user_name"
                     placeholder="User Name"
-                    label="Username"
+                    label="User Name"
+                    ErrorMessage="ok"
                   />
                 </Col>
                 <Col sm="12">
@@ -80,8 +81,13 @@ const Login = () => {
                     label="Password"
                   />
                 </Col>
-
                 <Col sm="12">
+                  <ReCaptcha
+                    onChange={handleCaptchaVerification}
+                    placeholder="Insert captcha" // optional
+                  />
+                </Col>
+                <Col sm="12" className="mt-3">
                   <Btn
                     title="Login"
                     className="btn btn-animation w-100 justify-content-center"
@@ -90,11 +96,6 @@ const Login = () => {
                     loading={Number(isLoading)}
                   />
                 </Col>
-
-                <ReCaptcha
-                  onChange={setCaptchaValue}
-                  placeholder="Insert captcha" // optional
-                />
               </Form>
             )}
           </Formik>
