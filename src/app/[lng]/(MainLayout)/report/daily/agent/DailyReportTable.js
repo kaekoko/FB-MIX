@@ -14,17 +14,12 @@ const AgentDailyReportTable = ({ data, ...props }) => {
     column: [
       { title: "Date", apiKey: "date", sortBy: "desc", type: "date" },
       {
-        title: "Stake",
+        title: "Bet Amount",
         apiKey: "stake_total",
         type: "price",
         sortBy: "desc",
       },
-      {
-        title: "Tax",
-        apiKey: "tax_total",
-        type: "price",
-        sortBy: "desc",
-      },
+
       {
         title: "Commission",
         apiKey: "commission_total",
@@ -39,8 +34,14 @@ const AgentDailyReportTable = ({ data, ...props }) => {
         type: "price",
       },
       {
-        title: "Win / Lose",
-        apiKey: "win_lose_total",
+        title: "Player W/L",
+        apiKey: "player_win_lose",
+        sortBy: "desc",
+        type: "price",
+      },
+      {
+        title: "Agent W/L",
+        apiKey: "agent_win_lose",
         sortBy: "desc",
         type: "price",
       },
