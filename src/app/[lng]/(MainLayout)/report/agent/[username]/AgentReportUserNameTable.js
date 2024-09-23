@@ -36,7 +36,7 @@ const AgentReportUsernameTable = ({ type, data, ...props }) => {
       },
 
       {
-        title: "Reward",
+        title: "Win",
         apiKey: "win_total",
         sortBy: "desc",
         type: "price",
