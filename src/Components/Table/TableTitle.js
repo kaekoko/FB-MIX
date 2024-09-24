@@ -196,6 +196,45 @@ const TableTitle = ({
           )}
         </>
       )}
+
+      {filterHeader?.isTransactionDetail && data && (
+        <>
+          {data?.data && (
+            <div className="d-flex flex-wrap gap-3">
+              {data?.data?.total_deposit ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Deposit : </span>
+                    <span>{Number(data?.data?.total_deposit || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_withdraw >= 0 ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Withdraw : </span>
+                    <span>{Number(data?.data?.total_withdraw || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+              {data?.data?.total_difference ? (
+                <Btn className="btn-theme btn-sm">
+                  <div className="d-flex gap-1 fw-bold">
+                    <span>Total Diffrenece : </span>
+                    <span>{Number(data?.data?.total_difference || 0)}</span>
+                  </div>
+                </Btn>
+              ) : (
+                <></>
+              )}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

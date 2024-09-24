@@ -65,11 +65,11 @@ const AgentTransactionTable = ({ data, ...props }) => {
       );
       element.user_name = element.agent ? (
         <div className="payment-mode">
-          <span>{element?.agent.user_name}</span>
+          <span>{element?.agent?.user_name}</span>
         </div>
       ) : (
         <div className="payment-mode">
-          <span>{element?.user.user_name}</span>
+          <span>{element?.user?.user_name}</span>
         </div>
       );
       return element;
