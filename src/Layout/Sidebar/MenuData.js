@@ -1,10 +1,19 @@
-import { RiContactsLine, RiHomeLine, RiListUnordered } from "react-icons/ri";
+import {
+  RiContactsLine,
+  RiDashboard3Line,
+  RiFileHistoryLine,
+  RiGroupLine,
+  RiHistoryLine,
+  RiHomeLine,
+  RiLineChartLine,
+  RiListUnordered,
+} from "react-icons/ri";
 
 const MENUITEMS = [
   {
     title: "Dashboard",
     displayTitle: "Dashboard",
-    icon: <RiHomeLine />,
+    icon: <RiDashboard3Line />,
     path: "/dashboard",
     type: "link",
   },
@@ -43,7 +52,7 @@ const MENUITEMS = [
   {
     title: "Single Bets Log",
     displayTitle: "Single Bets Log",
-    icon: <RiListUnordered />,
+    icon: <RiHistoryLine />,
     type: "sub",
     children: [
       {
@@ -81,7 +90,7 @@ const MENUITEMS = [
   {
     title: "Multiple Bets Log",
     displayTitle: "Multiple Bets Log",
-    icon: <RiListUnordered />,
+    icon: <RiFileHistoryLine />,
     type: "sub",
     children: [
       {
@@ -119,7 +128,7 @@ const MENUITEMS = [
   {
     title: "Member Management",
     displayTitle: "Member Management",
-    icon: <RiContactsLine />,
+    icon: <RiGroupLine />,
     type: "sub",
     children: [
       {
@@ -139,7 +148,7 @@ const MENUITEMS = [
   {
     title: "Report",
     displayTitle: "Report",
-    icon: <RiListUnordered />,
+    icon: <RiLineChartLine />,
     type: "sub",
     children: [
       {
@@ -152,6 +161,26 @@ const MENUITEMS = [
         title: "Daily Agent Report",
         path: "/report/daily/agent",
         displayTitle: "Daily Agent Report",
+        permission: [""],
+      },
+    ],
+  },
+  {
+    title: "Transaction History",
+    displayTitle: "Transaction History",
+    icon: <RiListUnordered />,
+    type: "sub",
+    children: [
+      {
+        title: "Agent Transaction",
+        path: "/transaction/agent",
+        displayTitle: "Agent Transaction",
+        permission: [""],
+      },
+      {
+        title: "User Transaction",
+        path: "/transaction/user",
+        displayTitle: "User Transaction",
         permission: [""],
       },
     ],
