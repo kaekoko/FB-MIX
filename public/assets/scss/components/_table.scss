@@ -3,8 +3,8 @@
 ==========================**/
 .table {
   > :not(caption) {
-    >* {
-      >* {
+    > * {
+      > * {
         background-color: transparent;
       }
     }
@@ -19,7 +19,7 @@
 .dataTables_wrapper {
   width: calc(100% - 2px);
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     direction: rtl;
   }
 
@@ -117,7 +117,7 @@
           border-top-left-radius: 9px;
           border-bottom-left-radius: 9px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             border-top-left-radius: unset;
             border-bottom-left-radius: unset;
             border-top-right-radius: 9px;
@@ -130,7 +130,7 @@
           border-top-right-radius: 9px;
           border-bottom-right-radius: 9px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             border-top-right-radius: unset;
             border-bottom-right-radius: unset;
             border-top-left-radius: 9px;
@@ -170,7 +170,7 @@
           border-top-left-radius: 9px;
           border-bottom-left-radius: 9px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             border-top-left-radius: unset;
             border-bottom-left-radius: unset;
             border-top-right-radius: 9px;
@@ -182,7 +182,7 @@
           border-top-right-radius: 9px;
           border-bottom-right-radius: 9px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             border-top-right-radius: unset;
             border-bottom-right-radius: unset;
             border-top-left-radius: 9px;
@@ -229,7 +229,7 @@
     @media (max-width: 576px) {
       text-align: left;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         text-align: right;
       }
     }
@@ -244,7 +244,6 @@ table {
     }
 
     tbody {
-
       th,
       td {
         padding: 12px 15px;
@@ -281,7 +280,7 @@ th {
 
   > :not(:last-child) {
     > :last-child {
-      >* {
+      > * {
         border-bottom-color: $light-gray;
       }
     }
@@ -316,7 +315,6 @@ th {
     color: $table-row-color;
 
     a {
-
       i,
       svg {
         font-size: 18px;
@@ -330,7 +328,7 @@ th {
     }
   }
 
-  [class*='bg-'] {
+  [class*="bg-"] {
     color: $white;
   }
 
@@ -343,8 +341,7 @@ th {
   }
 }
 
-.table[class*='bg-'] {
-
+.table[class*="bg-"] {
   th,
   td {
     color: $white;
@@ -376,7 +373,7 @@ table {
         th {
           text-align: left;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             text-align: right;
           }
 
@@ -397,7 +394,7 @@ table {
           text-align: left;
           padding: 12px 15px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             text-align: right;
           }
 
@@ -447,7 +444,7 @@ table {
         font-size: calc(13px + 3 * (100vw - 320px) / 1600);
         background-color: #f9f9f6;
         text-align: center;
-        min-width: 170px;
+        // min-width: 170px;
         padding: 20px 15px !important;
         text-transform: capitalize;
         position: relative;
@@ -766,7 +763,7 @@ table {
       border-bottom: 1px solid $light-blue !important;
       background-color: $inner-bg;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         text-align: right;
       }
     }
@@ -784,10 +781,11 @@ table {
         border-top: 0;
         border-bottom: 1px solid $light-blue !important;
         text-align: left;
-        padding: calc(0px + (16 - 0) * ((100vw - 320px) / (1920 - 320))) calc(6px + (16 - 6) * ((100vw - 320px) / (1920 - 320)));
+        padding: calc(0px + (16 - 0) * ((100vw - 320px) / (1920 - 320)))
+          calc(6px + (16 - 6) * ((100vw - 320px) / (1920 - 320)));
         min-width: 175px;
 
-        [dir='rtl'] & {
+        [dir="rtl"] & {
           text-align: right;
         }
 
@@ -918,7 +916,7 @@ table {
         &:first-child {
           padding-left: 0;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             padding-left: unset;
             padding-right: 0;
           }
@@ -927,7 +925,7 @@ table {
         &:last-child {
           padding-right: 0;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             padding-right: unset;
             padding-left: 0;
           }
@@ -1035,7 +1033,7 @@ table {
         &:nth-child(3) {
           text-align: left;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             text-align: right;
           }
         }
@@ -1079,7 +1077,7 @@ table {
         &:nth-child(4) {
           text-align: left !important;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             text-align: right !important;
           }
         }
@@ -1120,7 +1118,6 @@ table {
   thead,
   tbody {
     tr {
-
       th,
       td {
         &:nth-child(2) {
@@ -1153,7 +1150,6 @@ table {
   thead,
   tbody {
     tr {
-
       th,
       td {
         &:nth-child(2) {
@@ -1294,7 +1290,7 @@ table {
             }
           }
 
-          span+span {
+          span + span {
             color: $grey-9;
           }
         }
@@ -1359,7 +1355,7 @@ table {
             }
           }
 
-          span+span {
+          span + span {
             color: $grey-9;
           }
         }
@@ -1373,11 +1369,9 @@ table {
 }
 
 .dashboard-table {
-
   thead,
   tbody {
     tr {
-
       th,
       td {
         padding: 0.75rem 0.75rem 0.75rem 0;
@@ -1430,7 +1424,7 @@ table {
 
 .order-details-table {
   .table-details {
-    +.table-details {
+    + .table-details {
       margin-top: 30px;
     }
 
@@ -1494,7 +1488,7 @@ table {
             border-bottom: none !important;
             color: $font-light;
 
-            [dir='rtl'] & {
+            [dir="rtl"] & {
               text-align: right;
             }
 
@@ -1551,7 +1545,9 @@ table {
 
             h5 {
               color: #212529;
-              font-size: calc(15px + (16 - 15) * ((100vw - 320px) / (1920 - 320)));
+              font-size: calc(
+                15px + (16 - 15) * ((100vw - 320px) / (1920 - 320))
+              );
               line-height: 1.2;
               font-weight: 400;
             }
@@ -1616,7 +1612,7 @@ table {
           font-weight: 700;
           margin-left: 5px;
 
-          [dir='rtl'] & {
+          [dir="rtl"] & {
             margin-left: 0;
             margin-right: 5px;
           }
@@ -1683,7 +1679,7 @@ table {
   .cart-buttons {
     padding-top: 35px;
 
-    >div {
+    > div {
       &:last-child {
         text-align: right;
         padding-right: 38px;
@@ -1840,7 +1836,7 @@ table {
       margin-top: 12px;
     }
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-left: unset;
       margin-right: auto;
     }
@@ -1980,7 +1976,9 @@ table {
 
         .product-detail-box {
           h5 {
-            font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+            font-size: calc(
+              14px + (15 - 14) * ((100vw - 320px) / (1920 - 320))
+            );
             margin-top: 5px;
           }
 
@@ -2076,7 +2074,7 @@ table {
         white-space: nowrap;
         margin-right: 15px;
 
-        [dir='rtl'] & {
+        [dir="rtl"] & {
           margin-right: 0;
           margin-left: 15px;
         }
@@ -2141,7 +2139,7 @@ table {
             border-top-left-radius: 9px;
             border-bottom-left-radius: 9px;
 
-            [dir='rtl'] & {
+            [dir="rtl"] & {
               border-top-left-radius: unset;
               border-bottom-left-radius: unset;
               border-top-right-radius: 9px;
@@ -2154,7 +2152,7 @@ table {
             border-top-right-radius: 9px;
             border-bottom-right-radius: 9px;
 
-            [dir='rtl'] & {
+            [dir="rtl"] & {
               border-top-right-radius: unset;
               border-bottom-right-radius: unset;
               border-top-left-radius: 9px;
@@ -2182,7 +2180,7 @@ table {
             border-top-left-radius: 9px;
             border-bottom-left-radius: 9px;
 
-            [dir='rtl'] & {
+            [dir="rtl"] & {
               border-top-left-radius: unset;
               border-bottom-left-radius: unset;
               border-top-right-radius: 9px;
@@ -2202,7 +2200,7 @@ table {
             border-top-right-radius: 9px;
             border-bottom-right-radius: 9px;
 
-            [dir='rtl'] & {
+            [dir="rtl"] & {
               border-top-right-radius: unset;
               border-bottom-right-radius: unset;
               border-top-left-radius: 9px;
