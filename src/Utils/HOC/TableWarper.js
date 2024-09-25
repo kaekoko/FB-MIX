@@ -86,8 +86,6 @@ const TableWarper = (WrappedComponent) => {
         }
       );
 
-      console.log(data);
-
       // To use this function in parent
       useImperativeHandle(ref, () => ({
         call() {

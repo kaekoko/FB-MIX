@@ -52,46 +52,7 @@ const TableTop = (props) => {
   return (
     <div className="show-box">
       {filterHeader?.noPageDrop !== true &&
-        filterHeader?.onlyNoPageDrop !== true && (
-          <div className="me-auto">
-            <Form
-              className="entries-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <Label>
-                {t("Show")}:
-                <select
-                  className="form-control"
-                  onChange={(e) => setPaginate(e.target.value)}
-                >
-                  <option>15</option>
-                  <option>25</option>
-                  <option>50</option>
-                  <option>100</option>
-                </select>
-              </Label>
-              <span>{t("Entries")}</span>
-              {destroy && isCheck?.length > 0 && (
-                <TableDeleteOption
-                  url={url}
-                  setIsCheck={setIsCheck}
-                  isCheck={isCheck}
-                />
-              )}
-              {edit && isCheck?.length > 0 && isReplicate && (
-                <TableDuplicateOption
-                  isReplicate={isReplicate}
-                  url={url}
-                  isCheck={isCheck}
-                  setIsCheck={setIsCheck}
-                  refetch={refetch}
-                />
-              )}
-            </Form>
-          </div>
-        )}
+        filterHeader?.onlyNoPageDrop !== true && <></>}
 
       {filterHeader?.filterSelect && (
         <DepositWithdrawFilter
@@ -112,7 +73,7 @@ const TableTop = (props) => {
       {dateRange && <CalenderFilter date={date} setDate={setDate} />}
 
       {filterHeader?.noSearch !== true && (
-        <div className="role-search ms-auto">
+        <div className="d-flex gap-2 ms-auto mt-2 mt-md-0">
           <Label htmlFor="role-search" className="form-label">
             {t("Search")}:
           </Label>

@@ -5,8 +5,6 @@ import TableWarper from "@/Utils/HOC/TableWarper";
 import { useMemo } from "react";
 
 const AgentMainReportTable = ({ data, ...props }) => {
-  console.log(data);
-
   const headerObj = {
     checkBox: false,
     isOption: true,

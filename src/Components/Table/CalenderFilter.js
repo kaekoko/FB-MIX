@@ -15,10 +15,8 @@ const CalenderFilter = ({ date, setDate }) => {
     });
   };
 
-  console.log(date);
-
   return (
-    <div className="calender-box ms-auto">
+    <div className="d-flex gap-2">
       <Input
         type="date"
         value={format(date[0].startDate, "yyyy-MM-dd")}

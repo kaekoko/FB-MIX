@@ -1,6 +1,6 @@
 const ProfileMessage = () => {
   return (
-    <table className="table-bordered table">
+    <table className="table-bordered table mt-2 mt-md-0">
       <thead>
         <tr>
           <th>Date/Time</th>
