@@ -146,8 +146,8 @@ const MENUITEMS = [
     ],
   },
   {
-    title: "Report",
-    displayTitle: "Report",
+    title: "Agent Report",
+    displayTitle: "Agent Report",
     icon: <RiLineChartLine />,
     type: "sub",
     children: [
@@ -162,6 +162,24 @@ const MENUITEMS = [
         path: "/report/daily/agent",
         displayTitle: "Daily Agent Report",
         permission: [""],
+      },
+    ],
+  },
+  {
+    title: "User Report",
+    displayTitle: "User Report",
+    icon: <RiLineChartLine />,
+    type: "sub",
+    children: [
+      {
+        title: "User Report",
+        path: "/report/user/main",
+        displayTitle: "User Report",
+      },
+      {
+        title: "Daily User Report",
+        path: "/report/daily/user",
+        displayTitle: "Daily User Report",
       },
     ],
   },
