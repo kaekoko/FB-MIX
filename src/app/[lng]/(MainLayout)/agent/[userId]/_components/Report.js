@@ -43,9 +43,9 @@ const AgentReport = ({ params: { userId }, activeTab }) => {
   if (isFetching) return <Loader />;
   return (
     <Card className="bg-transparent border">
-      <CardHeader className="d-flex align-items-center pb-3 bg-transparent">
+      <CardHeader className="d-md-flex align-items-center pb-3 bg-transparent px-0">
         <div className="fs-4 fw-bold ps-md-3">Report</div>
-        <div className="col-sm-3 ms-auto">
+        <div className="col-12 col-sm-3 ms-auto">
           {date && <CalenderFilter date={date} setDate={setDate} />}
         </div>
       </CardHeader>
