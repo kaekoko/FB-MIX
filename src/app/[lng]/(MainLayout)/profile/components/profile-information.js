@@ -3,7 +3,7 @@ import request from "@/Utils/AxiosUtils";
 import { selfData } from "@/Utils/AxiosUtils/API";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { Col, Row } from "reactstrap";
+import { Card, Col, Row } from "reactstrap";
 
 const ProfileInformation = () => {
   const { data, refetch, isFetching } = useQuery({
@@ -19,94 +19,93 @@ const ProfileInformation = () => {
   if (isFetching) return <Loader />;
 
   return (
-    <div className="fs-6">
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">User Name</Col>
-        <Col className="text-center  fw-bold">{data?.data?.user_name}</Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">Phone Number</Col>
-        <Col className="text-center  fw-bold">{data?.data?.phone_number}</Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">Balance</Col>
-        <Col className="text-center  fw-bold">{data?.data?.balance}</Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">Max Single Bet</Col>
-        <Col className="text-center  fw-bold">{data?.data?.max_single_bet}</Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">Max Mix Bet</Col>
-        <Col className="text-center  fw-bold">{data?.data?.max_mix_bet}</Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">Single Bet Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.single_bet_commission}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">2 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_two}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">3 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_three}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">4 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_four}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">5 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_five}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">6 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_six}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">7 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_seven}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">8 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_eight}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">9 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_nine}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border-top border-start border-end">
-        <Col className="text-start ms-4">10 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_ten}
-        </Col>
-      </Row>
-      <Row className="mx-2 py-2 border">
-        <Col className="text-start ms-4">11 Event Commision</Col>
-        <Col className="text-center  fw-bold">
-          {data?.data?.match_count_eleven}
-        </Col>
-      </Row>
-    </div>
+    <>
+      <Card className="rounded-2 mb-3">
+        <Row className="mx-md-5 gap-3">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">User Name :</div>
+            <h2>{data?.data?.user_name}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Name :</div>
+            <h2>{data?.data?.name}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Phone Number :</div>
+            <h2>{data?.data?.phone_number ?? "-"}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Max Mix Bet :</div>
+            <h2>{data?.data?.max_mix_bet}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Max Single Bet :</div>
+            <h2>{data?.data?.max_single_bet}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Single Bet Commission :</div>
+            <h2>{data?.data?.single_bet_commission}</h2>
+          </Col>
+        </Row>
+      </Card>
+      <div className="fs-4 my-2 text-muted">Mix Bet Commission</div>
+      <Card className="rounded-2 border pt-3 bg-transparent">
+        <Row className="mx-md-5 gap-3">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 2 :</div>
+            <h2>{data?.data?.match_count_two}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 3 :</div>
+            <h2>{data?.data?.match_count_three}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 4 :</div>
+            <h2>{data?.data?.match_count_four}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 5 :</div>
+            <h2>{data?.data?.match_count_five}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 6 :</div>
+            <h2>{data?.data?.match_count_six}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 7 :</div>
+            <h2>{data?.data?.match_count_seven}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 8 :</div>
+            <h2>{data?.data?.match_count_eight}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 9 :</div>
+            <h2>{data?.data?.match_count_nine}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 10 :</div>
+            <h2>{data?.data?.match_count_ten}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Match Count 11 :</div>
+            <h2>{data?.data?.match_count_eleven}</h2>
+          </Col>
+        </Row>
+      </Card>
+    </>
   );
 };
 

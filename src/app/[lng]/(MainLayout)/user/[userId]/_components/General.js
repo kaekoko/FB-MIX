@@ -63,7 +63,7 @@ const UserGeneral = ({ params: { userId }, activeTab }) => {
           </Col>
           <Col sm={12} md={3} className="d-flex flex-column gap-2">
             <div className="fst-italic">Phone Number :</div>
-            <h2>{data?.data?.data?.phone_number}</h2>
+            <h2>{data?.data?.data?.phone_number ?? "-"}</h2>
           </Col>
         </Row>
 

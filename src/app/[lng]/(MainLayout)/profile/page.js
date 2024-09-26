@@ -7,19 +7,19 @@ import ProfileMessage from "./components/profile-message";
 
 const Profile = () => {
   return (
-    <Card>
+    <Card className="bg-transparent">
       <CardBody>
         <div className="title-header option-title">
           <h5>Account Profile</h5>
         </div>
 
         <Row className="d-flex justify-content-between">
-          <Col sm={12} md={5}>
+          <Col sm={12}>
             <ProfileInformation />
           </Col>
-          <Col sm={12} md={7} className="">
+          {/* <Col sm={12} md={7} className="">
             <ProfileMessage />
-          </Col>
+          </Col> */}
         </Row>
       </CardBody>
     </Card>

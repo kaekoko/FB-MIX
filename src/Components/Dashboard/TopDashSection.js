@@ -56,7 +56,7 @@ const TopDashSection = () => {
     <section className="dashboard-tiles">
       <Card className="border">
         <CardHeader className="d-md-flex align-items-center pb-3 bg-transparent px-0">
-          <div className="fs-4 fw-bold ps-md-3">Dashboard</div>
+          <div className="fs-4 fw-bold">Dashboard</div>
           <div className="ms-auto">
             {date && <CalenderFilter date={date} setDate={setDate} />}
           </div>
@@ -199,6 +199,17 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
+                    <h6>{t("Downline Commission")}</h6>
+                    <h3>{data?.data?.data?.downline_commission}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
                     <h6>{t("Win / Loss")}</h6>
                     <h3>
                       {Math.round(Number(data?.data?.data?.profit) * 100) / 100}
@@ -214,7 +225,7 @@ const TopDashSection = () => {
         </CardBody>
 
         <CardBody className="border bg-white rounded-3 rounded-top-0 border-top-0 p-3">
-          <div className="fs-5 mb-2 text-muted">Self Betting Report</div>
+          <div className="fs-5 mb-2 text-muted">User Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
               <Col xl={3} sm={6}>

@@ -51,7 +51,7 @@
   }
 
   .row {
-    >div {
+    > div {
       &:first-child {
         .card-tiles {
           background: rgba(#0da487, 0.1);
@@ -107,6 +107,20 @@
           }
         }
       }
+
+      &:nth-child(5) {
+        .card-tiles {
+          background: rgba(#389bf8, 0.1);
+
+          &:after {
+            background-color: #389bf8;
+          }
+
+          .icon-box {
+            background: #389bf8;
+          }
+        }
+      }
     }
   }
 }
@@ -129,7 +143,7 @@
     width: 100%;
 
     tr {
-      +tr {
+      + tr {
         td {
           border-top: 1px solid #eee;
           border-color: #eee;
@@ -210,7 +224,7 @@
       color: rgba($content-color, 0.7);
 
       body[class="dark-only"] & {
-        color: rgba(255, 255, 255, 0.3)
+        color: rgba(255, 255, 255, 0.3);
       }
     }
   }
@@ -229,7 +243,7 @@
     border: none;
 
     tr {
-      +tr {
+      + tr {
         border-top: 1px dashed #eee;
       }
     }
@@ -250,13 +264,13 @@
       }
     }
 
-    +li {
+    + li {
       margin-top: 7px;
       padding-top: 7px;
       border-top: 1px dashed #eee;
     }
 
-    >div {
+    > div {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -315,38 +329,38 @@
 
 @media (min-width: 576px) {
   .dashboard-form {
-    >div {
-      >.container-fluid {
+    > div {
+      > .container-fluid {
         padding: 0;
 
-        >.row {
+        > .row {
           margin: 0;
 
-          >div {
+          > div {
             padding: 0;
           }
         }
       }
 
-      >form {
-        >.container-fluid {
+      > form {
+        > .container-fluid {
           padding: 0;
 
-          >.row {
+          > .row {
             margin: 0;
 
-            >div {
+            > div {
               padding: 0;
             }
           }
 
-          >.container-fluid {
+          > .container-fluid {
             padding: 0;
 
-            >.row {
+            > .row {
               margin: 0;
 
-              >div {
+              > div {
                 padding: 0;
               }
             }

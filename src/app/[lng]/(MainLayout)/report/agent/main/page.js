@@ -8,6 +8,7 @@ const AgentReportWithUsername = () => {
     <AgentMainReportTable
       dateRange
       url={agentReportMain}
+      moduleName="Agent Report"
       filterHeader={{ noSearch: true, isReportDetail: true }}
     />
   );
