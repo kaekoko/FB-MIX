@@ -102,7 +102,7 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Total Credit")}</h6>
+                    <h6>{t("Down Line")}</h6>
                     <h3>
                       {Math.round(
                         Number(data?.data?.data?.Total_credit || 0) * 100

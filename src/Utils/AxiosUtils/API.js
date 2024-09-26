@@ -126,6 +126,10 @@ export const agentReportUsernameApi = "/agent/report/agent";
 export const agentReportMain = "/agent/main/agent/report";
 export const agentUserByOneSlips = "/agent/user/report/byOneSlip";
 
+//REPORT USER
+export const userDailyReport = "/agent/user/self/daily";
+export const userReportMain = "/agent/user/self/report";
+
 //Transaction
 export const agentMainTransaction = "/agent/main/transaction";
 export const userMainTransaction = "/user/main/transaction";

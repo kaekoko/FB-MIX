@@ -166,7 +166,7 @@ const ShowTable = ({
         </tr>
       </thead>
       <tbody>
-        {headerData?.data.length > 0 ? (
+        {headerData?.data?.length > 0 ? (
           headerData?.data?.map((tableData, index) => (
             <tr key={index}>
               {headerData?.checkBox && (

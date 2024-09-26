@@ -7,7 +7,7 @@ const AgentReportDaily = () => {
     <AgentDailyReportTable
       dateRange
       url={agentDailyReport}
-      moduleName="Daily Report"
+      moduleName="Agent Daily Report"
       filterHeader={{ isReportDetail: true, noSearch: true }}
     />
   );
