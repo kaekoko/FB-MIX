@@ -264,7 +264,7 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Win / Loss")}</h6>
+                    <h6>{t("Agent W/L")}</h6>
                     <h3>{data?.data?.data?.sefl_win_lose}</h3>
                   </div>
                   <div className="icon-box">
