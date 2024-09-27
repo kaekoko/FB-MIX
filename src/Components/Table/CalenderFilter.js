@@ -16,7 +16,7 @@ const CalenderFilter = ({ date, setDate }) => {
   };
 
   return (
-    <div className="d-flex gap-2">
+    <div className="d-flex gap-2 mb-2">
       <Input
         type="date"
         value={format(date[0].startDate, "yyyy-MM-dd")}
