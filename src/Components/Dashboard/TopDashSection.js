@@ -60,7 +60,7 @@ const TopDashSection = () => {
           </div>
         </CardHeader>
 
-        <CardBody className="border  rounded-3 rounded-bottom-0 border-bottom-0 p-3 bg-gray-100">
+        <CardBody className="border border-4 rounded-3  p-3 bg-gray-100 mt-5 border-x-rose-600">
           <div className="fs-5 mb-2 text-muted">User Management</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -116,7 +116,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
+        <CardBody className="border border-4 rounded-3  p-3 bg-gray-100 mt-5 border-x-rose-600">
           <div className="fs-5 mb-2 text-muted">Transaction Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -157,7 +157,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
+        <CardBody className="border border-4 rounded-3  p-3 bg-gray-100 mt-5 border-x-rose-600">
           <div className="fs-5 mb-2 text-muted">Company Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -186,25 +186,15 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Commission")}</h6>
-                    <h3>{data?.data?.data?.total_commission}</h3>
+                    <h6>Total commission</h6>
+                    <h3>{data?.data?.data?.main_total_commission}</h3>
                   </div>
                   <div className="icon-box">
                     <FiBox />
                   </div>
                 </div>
               </Col>
-              <Col xl={3} sm={6}>
-                <div className="card-tiles">
-                  <div>
-                    <h6>{t("Downline Commission")}</h6>
-                    <h3>{data?.data?.data?.downline_commission}</h3>
-                  </div>
-                  <div className="icon-box">
-                    <FiBox />
-                  </div>
-                </div>
-              </Col>
+        
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
@@ -222,8 +212,8 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border  rounded-3 rounded-top-0 border-top-0 p-3 bg-gray-100">
-          <div className="fs-5 mb-2 text-muted">User Betting Report</div>
+        <CardBody className="border border-4 rounded-3  p-3 bg-gray-100 mt-5 border-x-rose-600">
+          <div className="fs-5 mb-2 text-muted">Direct User Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
               <Col xl={3} sm={6}>
@@ -251,11 +241,24 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Commission")}</h6>
+                    <h6>Self Commission</h6>
                     <h3>{data?.data?.data?.self_agent_commission}</h3>
                   </div>
                   <div className="icon-box">
                     <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>Selft Play win/lose</h6>
+                    <h3>
+                      {Math.round(Number(data?.data?.data?.self_player_win_lose) * 100) / 100}
+                    </h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiPercent />
                   </div>
                 </div>
               </Col>
@@ -270,11 +273,12 @@ const TopDashSection = () => {
                   </div>
                 </div>
               </Col>
+             
             </Row>
           </Container>
         </CardBody>
 
-        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
+        <CardBody className="border border-4 rounded-3  p-3 bg-gray-100 mt-5 border-x-rose-600">
           <div className="fs-5 mb-2 text-muted">Agent Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -303,7 +307,7 @@ const TopDashSection = () => {
               <Col xl={3} sm={6}>
                 <div className="card-tiles">
                   <div>
-                    <h6>{t("Commission")}</h6>
+                    <h6>Self Commission</h6>
                     <h3>{data?.data?.data?.agent_total_commission}</h3>
                   </div>
                   <div className="icon-box">
