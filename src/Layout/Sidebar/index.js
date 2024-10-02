@@ -41,6 +41,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     pathname && setSidebarOpen((prev) => !prev);
+    console.log(pathname, "render");
   }, [pathname]);
 
   return (
