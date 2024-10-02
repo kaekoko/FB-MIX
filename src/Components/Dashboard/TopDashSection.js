@@ -62,7 +62,7 @@ const TopDashSection = () => {
           </div>
         </CardHeader>
 
-        <CardBody className="border bg-white rounded-3 rounded-bottom-0 border-bottom-0 p-3">
+        <CardBody className="border  rounded-3 rounded-bottom-0 border-bottom-0 p-3 bg-gray-100">
           <div className="fs-5 mb-2 text-muted">User Management</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -118,7 +118,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border bg-white rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3">
+        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
           <div className="fs-5 mb-2 text-muted">Transaction Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -159,8 +159,8 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border bg-white rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3">
-          <div className="fs-5 mb-2 text-muted">Betting Report</div>
+        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
+          <div className="fs-5 mb-2 text-muted">Company Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
               <Col xl={3} sm={6}>
@@ -224,7 +224,7 @@ const TopDashSection = () => {
           </Container>
         </CardBody>
 
-        <CardBody className="border bg-white rounded-3 rounded-top-0 border-top-0 p-3">
+        <CardBody className="border  rounded-3 rounded-top-0 border-top-0 p-3 bg-gray-100">
           <div className="fs-5 mb-2 text-muted">User Betting Report</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">
@@ -275,7 +275,73 @@ const TopDashSection = () => {
             </Row>
           </Container>
         </CardBody>
+
+        <CardBody className="border  rounded-3 rounded-top-0 rounded-bottom-0 border-top-0 border-bottom-0 p-3 bg-gray-100">
+          <div className="fs-5 mb-2 text-muted">Agent Report</div>
+          <Container fluid={true} className="p-sm-0">
+            <Row className="g-3 py-2">
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Stake")}</h6>
+                    <h3>{data?.data?.data?.agent_total_stake}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiWalletLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Total Win")}</h6>
+                    <h3>{data?.data?.data?.agent_total_win}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <RiFileTextLine />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Commission")}</h6>
+                    <h3>{data?.data?.data?.agent_total_commission}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Downline Commission")}</h6>
+                    <h3>{data?.data?.data?.agent_total_downline}</h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiBox />
+                  </div>
+                </div>
+              </Col>
+              <Col xl={3} sm={6}>
+                <div className="card-tiles">
+                  <div>
+                    <h6>{t("Win / Loss")}</h6>
+                    <h3>
+                      {Math.round(Number(data?.data?.data?.agent_win_lose) * 100) / 100}
+                    </h3>
+                  </div>
+                  <div className="icon-box">
+                    <FiPercent />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </CardBody>
       </Card>
+
     </section>
   );
 };
