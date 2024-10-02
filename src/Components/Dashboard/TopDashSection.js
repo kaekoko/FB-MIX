@@ -44,8 +44,6 @@ const TopDashSection = () => {
     }
   );
 
-  console.log(data);
-
   useEffect(() => {
     !isFetching && refetch();
   }, [date]);
