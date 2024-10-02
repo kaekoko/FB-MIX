@@ -4,6 +4,7 @@ import LogoWrapper from "@/Components/CommonComponent/LogoWrapper";
 import MENUITEMS from "./MenuData";
 import AccountContext from "@/Helper/AccountContext";
 import SettingContext from "@/Helper/SettingContext";
+import { usePathname } from "next/navigation";
 
 const MenuList = dynamic(() => import("./MenuList"), {
   ssr: false,
@@ -11,6 +12,7 @@ const MenuList = dynamic(() => import("./MenuList"), {
 const Sidebar = () => {
   const [activeMenu, setActiveMenu] = useState([]);
   const { sidebarOpen, setSidebarOpen } = useContext(SettingContext);
+  const pathname = usePathname();
 
   let storePermission = {};
   const ISSERVER = typeof window === "undefined";
@@ -34,7 +36,12 @@ const Sidebar = () => {
       return filteredItems;
     }, []);
   };
+
   const modifiedSidebar = filterSidebar(MENUITEMS);
+
+  useEffect(() => {
+    pathname && setSidebarOpen((prev) => !prev);
+  }, [pathname]);
 
   return (
     <div className={`sidebar-wrapper ${sidebarOpen ? "close_icon" : ""}`}>
@@ -46,8 +53,8 @@ const Sidebar = () => {
             <ul className="sidebar-links" id="simple-bar">
               {modifiedSidebar && (
                 <MenuList
-                  menu={modifiedSidebar}
                   level={0}
+                  menu={modifiedSidebar}
                   activeMenu={activeMenu}
                   setActiveMenu={setActiveMenu}
                 />
