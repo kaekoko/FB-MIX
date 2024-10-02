@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import LogoWrapper from "@/Components/CommonComponent/LogoWrapper";
 import MENUITEMS from "./MenuData";
@@ -10,9 +10,10 @@ const MenuList = dynamic(() => import("./MenuList"), {
   ssr: false,
 });
 const Sidebar = () => {
+  const pathname = usePathname();
+  const sidebarRef = useRef(null);
   const [activeMenu, setActiveMenu] = useState([]);
   const { sidebarOpen, setSidebarOpen } = useContext(SettingContext);
-  const pathname = usePathname();
 
   let storePermission = {};
   const ISSERVER = typeof window === "undefined";
@@ -40,12 +41,26 @@ const Sidebar = () => {
   const modifiedSidebar = filterSidebar(MENUITEMS);
 
   useEffect(() => {
-    pathname && setSidebarOpen((prev) => !prev);
-    console.log(pathname, "render");
+    pathname && setSidebarOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setSidebarOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [sidebarOpen]);
+
   return (
-    <div className={`sidebar-wrapper ${sidebarOpen ? "close_icon" : ""}`}>
+    <div
+      ref={sidebarRef}
+      className={`sidebar-wrapper ${sidebarOpen ? "close_icon" : ""}`}
+    >
       <div id="sidebarEffect" />
       <div className={`${mounted ? "skeleton-loader" : ""}`}>
         <LogoWrapper setSidebarOpen={setSidebarOpen} />
