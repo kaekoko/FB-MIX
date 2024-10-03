@@ -27,8 +27,11 @@ const LoginHandle = (responseData, router, setShowBoxMessage, setCookie) => {
       localStorage.setItem("account", JSON.stringify(responseData.data?.data));
       localStorage.setItem("role", "agent");
     }
-    router.push("/en/dashboard");
     localStorage.setItem("rule_toggle", true);
+    if (responseData?.data?.data?.first_time_login === 0) {
+      return window.location.reload();
+    }
+    router.push("/en/dashboard");
   } else {
     setShowBoxMessage(responseData.response.data?.data.error);
   }

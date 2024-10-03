@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   RiFullscreenExitLine,
@@ -23,6 +23,7 @@ import AccountContext from "@/Helper/AccountContext";
 import { useQuery } from "@tanstack/react-query";
 import request from "@/Utils/AxiosUtils";
 import { selfData } from "@/Utils/AxiosUtils/API";
+import { usePathname, useRouter } from "next/navigation";
 
 const RightNav = ({ setMode, setOpenSearchBar }) => {
   const { i18Lang } = useContext(I18NextContext);
@@ -33,6 +34,8 @@ const RightNav = ({ setMode, setOpenSearchBar }) => {
     useOutsideDropdown();
   const { settingObj } = useContext(SettingContext);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const { data, refetch, isFetching } = useQuery({
     queryKey: ["profile"],
@@ -43,6 +46,12 @@ const RightNav = ({ setMode, setOpenSearchBar }) => {
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   });
+
+  useEffect(() => {
+    if (data?.data.first_time_login === 0) {
+      router.replace("/en/changepassword");
+    }
+  }, [data?.data.first_time_login, pathname, router]);
 
   const toggleFullScreen = () => {
     if (

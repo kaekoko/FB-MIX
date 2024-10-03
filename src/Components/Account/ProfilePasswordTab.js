@@ -9,17 +9,23 @@ import useCreate from "../../Utils/Hooks/useCreate";
 import { updateProfilePassword } from "../../Utils/AxiosUtils/API";
 import Btn from "../../Elements/Buttons/Btn";
 import I18NextContext from "@/Helper/I18NextContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useTranslation } from "@/app/i18n/client";
 
 const ProfilePasswordTab = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
-  const { mutate, isLoading } = useCreate(
+  const { mutate, isLoading, isSuccess } = useCreate(
     updateProfilePassword,
     false,
     "/profile"
   );
+
+  useEffect(() => {
+    isSuccess && window.location.replace("/en/dashboard");
+    console.log("render");
+  }, [isSuccess]);
+
   return (
     <Formik
       enableReinitialize
