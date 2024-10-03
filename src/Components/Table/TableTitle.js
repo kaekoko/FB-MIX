@@ -58,7 +58,7 @@ const TableTitle = ({
               {data?.data?.total_stake ? (
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
-                    <span>Total Stake : </span>
+                    <span>Total Betamount : </span>
                     <span>{Number(data?.data?.total_stake || 0)}</span>
                   </div>
                 </Btn>
@@ -127,7 +127,7 @@ const TableTitle = ({
               {data?.data?.totalStake ? (
                 <Btn className="btn-theme btn-sm">
                   <div className="d-flex gap-1 fw-bold">
-                    <span>Total Stake : </span>
+                    <span>Total Betamount : </span>
                     <span>{Number(data?.data?.totalStake || 0)}</span>
                   </div>
                 </Btn>

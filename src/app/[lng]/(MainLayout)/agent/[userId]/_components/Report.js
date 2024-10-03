@@ -76,7 +76,7 @@ const AgentReport = ({ params: { userId }, activeTab }) => {
           </div>
           <Row className="mx-md-5 gap-3 gap-md-0 py-3 mt-4">
             <Col sm={12} md={3} className="d-flex flex-column gap-2">
-              <div className="fst-italic">Total Stake :</div>
+              <div className="fst-italic">Total Betamount :</div>
               <h2>{data?.data?.data?.total_stake}</h2>
             </Col>
             <Col sm={12} md={3} className="d-flex flex-column gap-2">

@@ -15,7 +15,7 @@ const SelfTransactionTable = ({ data, ...props }) => {
     column: [
       { title: "User Name", apiKey: "user_name" },
       {
-        title: "Stake",
+        title: "Bet Amount",
         apiKey: "stake",
         type: "price",
       },

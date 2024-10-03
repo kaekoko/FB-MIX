@@ -18,7 +18,7 @@ const AgentCommissionTable = ({ data, ...props }) => {
         sortBy: "desc",
       },
       {
-        title: "Stake",
+        title: "Bet Amount",
         apiKey: "stake",
         sortBy: "desc",
         type: "price",

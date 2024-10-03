@@ -110,7 +110,7 @@ const ViewDetailBody = ({ fullObj }) => {
           </div>
         </div>
         <div className="d-flex justify-content-between mt-2 px-1 w-100">
-          <div className="text-start">Stake</div>
+          <div className="text-start">Betamount</div>
           <div className="">{fullObj?.stake}</div>
         </div>
         <div className="d-flex justify-content-between mt-2 px-1 w-100">
