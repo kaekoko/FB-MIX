@@ -3,7 +3,11 @@
 import ShowTable from "@/Components/Table/ShowTable";
 import TableWarper from "@/Utils/HOC/TableWarper";
 import BalanceModal from "../../allBetSlips/components/agent-balance-modal";
-import { AgentBalanceAPI, AgentBlockAPI } from "@/Utils/AxiosUtils/API";
+import {
+  AgentBalanceAPI,
+  AgentBlockAPI,
+  AgentSuspendAPI,
+} from "@/Utils/AxiosUtils/API";
 
 const AgentTable = ({ data, ...props }) => {
   const headerObj = {
@@ -42,6 +46,13 @@ const AgentTable = ({ data, ...props }) => {
         sortBy: "desc",
         type: "switch",
         url: AgentBlockAPI,
+      },
+      {
+        title: "Suspend",
+        apiKey: "suspend",
+        sortBy: "desc",
+        type: "switch",
+        url: AgentSuspendAPI,
       },
       {
         title: "Action",

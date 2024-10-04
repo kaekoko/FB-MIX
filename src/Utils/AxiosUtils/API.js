@@ -77,6 +77,7 @@ export const AgentTransactionHistoryAPI = "/agent/deposit/withdraw/history";
 export const AgentEachBetSlipAPI = "/agent/byagent/betslips";
 export const AgentReportAPI = "/agent/byagent/report";
 export const AgentCommissionHistoryAPI = "/agent/commission/list";
+export const AgentSuspendAPI = "/agent/suspend";
 
 //User Management
 export const userListAPI = "/agent/user/list";
@@ -90,6 +91,7 @@ export const userPasswordAPI = "/agent/user/change/password";
 export const userTransactionHistoryAPI = "/agent/user/deposit/withdraw/history";
 export const userEachBetSlipAPI = "/agent/user/betslip";
 export const userReportAPI = "/agent/user/report";
+export const userSuspendAPI = "/agent/user/suspend";
 
 //Report
 export const ReportAPI = "/report";
