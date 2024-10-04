@@ -67,7 +67,6 @@ const Login = () => {
                     id="user_name"
                     placeholder="User Name"
                     label="User Name"
-                    ErrorMessage="ok"
                   />
                 </Col>
                 <Col sm="12">

@@ -6,7 +6,13 @@ export const emailSchema = Yup.string().email("Enter Valid Email").required();
 export const passwordSchema = Yup.string()
   .min(8, "Too Short!")
   .max(20, "Too Long!")
-  .required();
+  .required()
+  .matches(/[a-zA-Z]/, "Password must contain at least one letter")
+  .matches(/\d/, "Password must contain at least one number")
+  .matches(
+    /[!@#$%^&*()_+={}\[\]:;"'<>,.?/~`-]/,
+    "Password must contain at least one special character"
+  );
 export const recaptchaSchema = Yup.string().required();
 export const nameSchema = Yup.string().required();
 export const usernameSchema = Yup.string().required();
