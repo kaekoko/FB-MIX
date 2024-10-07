@@ -43,12 +43,14 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
               phone_number: data?.phone_number,
               max_mix_bet: data?.max_mix_bet,
               max_single_bet: data?.max_single_bet,
+              feature_max_single_bet: data?.feature_max_single_bet,
             }}
             validationSchema={YupObject({
               name: nameSchema,
               phone_number: phoneSchema,
               max_mix_bet: Yup.number().required(),
               max_single_bet: Yup.number().required(),
+              feature_max_single_bet: Yup.number().required(),
             })}
             onSubmit={(values) => {
               values["id"] = data?.id;
@@ -81,7 +83,7 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
                 </Row>
 
                 <Row className="mt-4">
-                  <Col sm={12} md={6}>
+                  <Col sm={12} md={4}>
                     <label for="max_mix_bet">Max Mix Bet :</label>
                     <Field
                       type="number"
@@ -91,12 +93,25 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
                       component={ReactstrapInput}
                     />
                   </Col>
-                  <Col sm={12} md={6} className="mt-2 mt-md-0">
+                  <Col sm={12} md={4} className="mt-2 mt-md-0">
                     <label for="max_single_bet">Max Single Bet :</label>
                     <Field
                       type="number"
                       name="max_single_bet"
                       id="max_single_bet"
+                      placeholder="Enter ..."
+                      component={ReactstrapInput}
+                    />
+                  </Col>
+
+                  <Col sm={12} md={4} className="mt-2 mt-md-0">
+                    <label for="feature_max_single_bet">
+                      Feature Max Single Bet :
+                    </label>
+                    <Field
+                      type="number"
+                      name="feature_max_single_bet"
+                      id="feature_max_single_bet"
                       placeholder="Enter ..."
                       component={ReactstrapInput}
                     />
