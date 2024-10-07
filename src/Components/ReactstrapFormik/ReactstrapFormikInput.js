@@ -133,7 +133,7 @@ const ReactstrapFormikInput = ({
               )}
               {touched[fields.name] && errors[fields.name] ? (
                 <FormFeedback>
-                  {t(handleModifier(errors[fields.name]).split(" ").join(""))}
+                  {t(handleModifier(errors[fields.name]).split(" ").join(" "))}
                 </FormFeedback>
               ) : (
                 ""

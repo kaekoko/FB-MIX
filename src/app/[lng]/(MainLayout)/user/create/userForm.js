@@ -56,14 +56,24 @@ const UserFormCreate = () => {
         phone_number: "",
         max_single_bet: Number(accountData?.max_single_bet || 0),
         max_mix_bet: Number(accountData?.max_mix_bet || 0),
+        feature_max_single_bet: Number(
+          accountData?.feature_max_single_bet || 0
+        ),
       }}
       validationSchema={YupObject({
         name: nameSchema,
         user_name: Yup.string().required().max(6).min(6),
         phone_number: Yup.string().min(6).max(15),
         password: passwordSchema,
-        max_single_bet: Yup.number().required(),
-        max_mix_bet: Yup.number().required(),
+        max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.max_single_bet)),
+        max_mix_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.max_mix_bet)),
+        feature_max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.feature_max_single_bet)),
       })}
       onSubmit={(values, { resetForm }) => {
         values["user_name"] =
@@ -175,7 +185,7 @@ const UserFormCreate = () => {
           </Row>
 
           <Row className="mt-3">
-            <Col sm="12" md="6">
+            <Col sm="12" md="4">
               <label for="max_mix_bet" className="fw-bold">
                 Max Mix Bet :
               </label>
@@ -189,7 +199,7 @@ const UserFormCreate = () => {
               />
             </Col>
 
-            <Col sm="12" md="6">
+            <Col sm="12" md="4">
               <label for="max_single_bet" className="fw-bold">
                 Max Single Bet :
               </label>
@@ -198,6 +208,19 @@ const UserFormCreate = () => {
                 type="number"
                 name="max_single_bet"
                 id="max_single_bet"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+            <Col sm="12" md="4">
+              <label for="feature_max_single_bet" className="fw-bold">
+                Feature Max Single Bet :
+              </label>
+
+              <Field
+                type="number"
+                name="feature_max_single_bet"
+                id="feature_max_single_bet"
                 component={ReactstrapInput}
                 required
               />

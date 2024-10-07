@@ -59,6 +59,9 @@ const AgentForm = () => {
         max_single_bet: Number(accountData?.max_single_bet || 0),
         max_mix_bet: Number(accountData?.max_mix_bet || 0),
         single_bet_commission: Number(accountData?.single_bet_commission || 0),
+        feature_max_single_bet: Number(
+          accountData?.feature_max_single_bet || 0
+        ),
         match_count_two: Number(accountData?.match_count_two || 0),
         match_count_three: Number(accountData?.match_count_three || 0),
         match_count_four: Number(accountData?.match_count_four || 0),
@@ -84,6 +87,9 @@ const AgentForm = () => {
         single_bet_commission: Yup.number()
           .required()
           .max(Number(accountData?.single_bet_commission)),
+        feature_max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.feature_max_single_bet)),
         match_count_two: Yup.number()
           .required()
           .max(Number(accountData?.match_count_two)),
@@ -226,7 +232,7 @@ const AgentForm = () => {
           </Row>
 
           <Row className="mt-3">
-            <Col sm="12" md="4">
+            <Col sm="12" md="3">
               <label for="max_mix_bet" className="fw-bold">
                 Max Mix Bet :
               </label>
@@ -240,7 +246,7 @@ const AgentForm = () => {
               />
             </Col>
 
-            <Col sm="12" md="4">
+            <Col sm="12" md="3">
               <label for="max_single_bet" className="fw-bold">
                 Max Single Bet :
               </label>
@@ -254,7 +260,7 @@ const AgentForm = () => {
               />
             </Col>
 
-            <Col sm="12" md="4">
+            <Col sm="12" md="3">
               <label for="single_bet_commission" className="fw-bold">
                 Single Bet Comission :
               </label>
@@ -263,6 +269,19 @@ const AgentForm = () => {
                 type="number"
                 name="single_bet_commission"
                 id="single_bet_commission"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+            <Col sm="12" md="3">
+              <label for="feature_max_single_bet" className="fw-bold">
+                Feature max single bet
+              </label>
+
+              <Field
+                type="number"
+                name="feature_max_single_bet"
+                id="feature_max_single_bet"
                 component={ReactstrapInput}
                 required
               />
