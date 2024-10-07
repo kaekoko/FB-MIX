@@ -11,7 +11,7 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
 
   return (
     <div className="d-flex flex-column gap-2">
-      {fullObj.multiple_bets.map((a) => (
+      {fullObj?.multiple_bets?.map((a) => (
         <>
           <div className="fw-bold fs-6">{a.upcoming?.league_name}</div>
           <div className="bg-dark rounded-2 p-2">

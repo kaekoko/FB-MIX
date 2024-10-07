@@ -14,6 +14,7 @@ import TableTop from "../../Components/Table/TableTop";
 import request from "../AxiosUtils";
 import useDelete from "../Hooks/useDelete";
 import { endOfDay, endOfWeek, format, startOfDay, startOfWeek } from "date-fns";
+import { staffDeleteAPI } from "../AxiosUtils/API";
 
 const TableWarper = (WrappedComponent) => {
   const HocComponent = forwardRef(
@@ -52,7 +53,7 @@ const TableWarper = (WrappedComponent) => {
         },
       ]);
       const [sortBy, setSortBy] = useState({ field: "", sort: "asc" });
-      const { mutate, isLoading: load } = useDelete(url);
+      const { mutate, isLoading: load } = useDelete(staffDeleteAPI);
       let ifParamsData = paramsProps ? Object.keys(paramsProps)[0] : "";
       const { data, isLoading, refetch, fetchStatus } = useQuery(
         [url],

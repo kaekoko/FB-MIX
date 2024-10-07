@@ -138,6 +138,12 @@ const MENUITEMS = [
         permission: [""],
       },
       {
+        title: "Staff",
+        path: "/staff",
+        displayTitle: "Staff",
+        permission: [""],
+      },
+      {
         title: "User",
         path: "/user",
         displayTitle: "User",

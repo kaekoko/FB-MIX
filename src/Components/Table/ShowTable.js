@@ -16,6 +16,8 @@ import { useTranslation } from "@/app/i18n/client";
 import { useAgentBalanceModal, useSlipModal } from "@/Utils/Zustand";
 import { FaMoneyBill, FaRegCopy } from "react-icons/fa";
 import { ToastNotification } from "@/Utils/CustomFunctions/ToastNotification";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 const ShowTable = ({
   current_page,
@@ -40,7 +42,8 @@ const ShowTable = ({
   const [edit] = usePermissionCheck(["edit", "destroy"]);
   const [colSpann, setColSpann] = useState();
   const router = useRouter();
-  const { onOpen, setData } = useAgentBalanceModal();
+  const { onOpen: onBalanceModalOpen, setData: setBalanceData } =
+    useAgentBalanceModal();
   const orignalDataLength =
     headerData?.data?.length &&
     headerData?.data?.filter((elem) => elem.system_reserve == "1").length;
@@ -240,32 +243,25 @@ const ShowTable = ({
                           </span>
                         </div>
                       </>
-                    ) : item.type == "url" ? (
+                    ) : item.type == "staff_delete" ? (
                       <>
-                        <h6> (Mix Parlay) (0 x 1500 @ 1)</h6>
-                        <button
-                          className="border-0 bg-transparent"
-                          onClick={() => {
-                            onOpen();
-                            setData(tableData.id);
-                          }}
-                        >
-                          <span className="text-primary fw-bold">
-                            @{item?.apiKey}
-                          </span>
-                        </button>
+                        <DeleteButton id={tableData?.id} mutate={mutate} />
                       </>
                     ) : item.type == "button" ? (
                       <>
                         <button
-                          className="btn btn-primary btn-sm"
+                          className="btn btn-primary btn-sm mx-auto"
                           onClick={() => {
-                            onOpen();
-                            setData(tableData);
+                            onBalanceModalOpen();
+                            setBalanceData(tableData);
                           }}
                         >
                           <FaMoneyBill /> {item?.btnText}
                         </button>
+                      </>
+                    ) : item.type == "staff_edit" ? (
+                      <>
+                        <EditButton tableData={tableData} refetch={refetch} />
                       </>
                     ) : item.type == "copy" ? (
                       <>
