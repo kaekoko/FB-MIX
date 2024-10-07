@@ -21,6 +21,7 @@ const ReactstrapFormikInput = ({
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
   const { currencySymbol } = useContext(SettingContext);
+
   return (
     <>
       {props.label ? (
@@ -128,8 +129,12 @@ const ReactstrapFormikInput = ({
                   } else false;
                 }}
               />
-              {props?.helpertext && (
-                <p className="help-text">{props?.helpertext}</p>
+              {props?.id == "password" && (
+                <p className="help-text small d-flex align-items-center gap-2">
+                  <span className="text-danger fw-bold fs-5">*</span> Use
+                  atleast one letter, one number and one special character in
+                  your password
+                </p>
               )}
               {touched[fields.name] && errors[fields.name] ? (
                 <FormFeedback>

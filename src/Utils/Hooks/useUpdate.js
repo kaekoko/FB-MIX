@@ -12,7 +12,7 @@ const useUpdate = (url, updateId, path, message, extraFunction) => {
         url: `${url}/${
           Array.isArray(updateId) ? updateId.join("/") : updateId
         }`,
-        method: "put",
+        method: "post",
         data,
       }),
     {

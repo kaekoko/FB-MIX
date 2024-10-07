@@ -93,6 +93,12 @@ export const userEachBetSlipAPI = "/agent/user/betslip";
 export const userReportAPI = "/agent/user/report";
 export const userSuspendAPI = "/agent/user/suspend";
 
+//Staff Management
+export const staffListAPI = "/agent/staff/list";
+export const staffCreateAPI = "/agent/staff/create";
+export const staffDeleteAPI = "/agent/staff/delete";
+export const staffEditAPI = "/agent/staff/change/password";
+
 //Report
 export const ReportAPI = "/report";
 

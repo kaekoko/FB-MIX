@@ -10,7 +10,7 @@ const useDelete = (url, refetch, extraFunction) => {
   const { t } = useTranslation(i18Lang, "common");
   const queryClient = useQueryClient();
   return useMutation(
-    (deleteId) => request({ url: `${url}/${deleteId}`, method: "delete" }),
+    (deleteId) => request({ url: `${url}/${deleteId}`, method: "post" }),
     {
       onSuccess: (resData) => {
         SuccessHandle(resData, false, false, t("DeletedSuccessfully"));
