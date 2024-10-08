@@ -128,12 +128,15 @@ const ReactstrapFormikInput = ({
                     if (e.target.value < 0) e.target.value = 0;
                   } else false;
                 }}
+                placeholder={
+                  props?.id === "password" ? "qwerty1@" : props.placeholder
+                }
               />
               {props?.id == "password" && (
-                <p className="help-text small d-flex align-items-center gap-2">
-                  <span className="text-danger fw-bold fs-5">*</span> Use
-                  atleast one letter, one number and one special character in
-                  your password
+                <p className="help-text small d-flex align-items-baseline gap-2">
+                  <span className="text-danger fw-bold fs-5">*</span> Password
+                  must contain at least one letter, one number, one special
+                  character and at least 8 characters long.
                 </p>
               )}
               {touched[fields.name] && errors[fields.name] ? (
