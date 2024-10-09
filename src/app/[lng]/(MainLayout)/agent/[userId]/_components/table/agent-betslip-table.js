@@ -43,6 +43,8 @@ const AgentBetSlipTable = ({ data, ...props }) => {
               ? "text-bg-success"
               : element.status === "loss"
               ? "text-bg-danger"
+              : element.status === "bonus"
+              ? "text-bg-info"
               : "badge-info"
           }`}
         >
@@ -53,6 +55,8 @@ const AgentBetSlipTable = ({ data, ...props }) => {
               ? "Win"
               : element.status === "loss"
               ? "Loss"
+              : element.status === "bonus"
+              ? "Bonus"
               : "Refund"}
           </span>
         </div>
