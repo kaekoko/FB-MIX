@@ -643,6 +643,10 @@ export const eachBetslipForAll = [
     value: "refund",
     name: "Refund",
   },
+  {
+    value: "bonus",
+    name: "Bonus",
+  },
 ];
 
 export const BET_TYPE_LIST = [

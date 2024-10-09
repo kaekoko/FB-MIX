@@ -119,6 +119,8 @@ export const multipleBetWonAPI = "/agent/user/all/betslips/multiple?type=win";
 export const multipleBetLostAPI = "/agent/user/all/betslips/multiple?type=loss";
 export const multipleBetRefundedAPI =
   "/agent/user/all/betslips/multiple?type=refund";
+export const multipleBetBonusAPI =
+  "/agent/user/all/betslips/multiple?type=bonus";
 
 //self
 export const selfTransactionAPI = "/agent/user/self/deposit/withdraw/history";
