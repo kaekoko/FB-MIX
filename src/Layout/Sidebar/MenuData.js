@@ -123,6 +123,12 @@ const MENUITEMS = [
         displayTitle: "Refunded Bets",
         permission: [""],
       },
+      {
+        title: "Bonus Bets",
+        path: "/bet/multi/bonus",
+        displayTitle: "Bonus Bets",
+        permission: [""],
+      },
     ],
   },
   {

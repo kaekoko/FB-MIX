@@ -31,7 +31,6 @@ const BetSlipTable = ({ data, ...props }) => {
     ],
     data: data || [],
   };
-  console.log(data);
 
   let orders = useMemo(() => {
     return headerObj?.data?.filter((element) => {
@@ -44,6 +43,8 @@ const BetSlipTable = ({ data, ...props }) => {
               ? "text-bg-success"
               : element.status === "loss"
               ? "text-bg-danger"
+              : element.status === "bonus"
+              ? "text-bg-info"
               : "badge-danger"
           }`}
         >
@@ -54,6 +55,8 @@ const BetSlipTable = ({ data, ...props }) => {
               ? "Win"
               : element.status === "loss"
               ? "Loss"
+              : element.status === "bonus"
+              ? "Bonus"
               : "Refund"}
           </span>
         </div>
