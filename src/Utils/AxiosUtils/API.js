@@ -19,6 +19,7 @@ export const role = "role";
 
 //rules and regulations
 export const agentRulesAPI = "/agent/rules";
+export const maintainAPI = "/maintain";
 
 //users api
 export const user = "user";
