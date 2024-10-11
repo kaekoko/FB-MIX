@@ -15,6 +15,7 @@ const BetSlipTable = ({ data, ...props }) => {
       modalTitle: "Action",
     },
     column: [
+      { title: "Slip ID", apiKey: "id" },
       { title: "User Name", apiKey: "user_name" },
       {
         title: "Bet Amount",

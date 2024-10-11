@@ -6,8 +6,8 @@ import { ToastContainer } from "react-toastify";
 export async function generateMetadata() {
   return {
     metadataBase: new URL(process.env.API_PROD_URL),
-    title: "Topwin | Agent Dashboard",
-    description: "Topwin Bet",
+    title: "Mega Sports 777",
+    description: "Mega Sports 777",
     icons: {
       icon: "https://api.topwin.club/public/images/logo/favicon.png",
       link: {

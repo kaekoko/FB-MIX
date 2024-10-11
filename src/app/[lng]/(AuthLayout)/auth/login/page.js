@@ -35,7 +35,7 @@ const Login = () => {
       <ShowBox showBoxMessage={showBoxMessage} />
       <LoginBoxWrapper>
         <div className="log-in-title">
-          <h3 className="fs-2">{t("TOPWIN Club")}</h3>
+          <h3 className="fs-2">{t("Mega Sport 777")}</h3>
           <h5>{t("LogInYourAccount")}</h5>
         </div>
         <div className="input-box">
