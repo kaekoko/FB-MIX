@@ -6,6 +6,7 @@ import { useMemo } from "react";
 
 const BetSlipTable = ({ data, ...props }) => {
   const headerObj = {
+    isSerialNo: props.isSerialNo === false ? false : true,
     checkBox: false,
     isOption: true,
     noEdit: true,
@@ -64,9 +65,9 @@ const BetSlipTable = ({ data, ...props }) => {
       ) : (
         "-"
       );
-      element.user_name = element.user.user_name && (
+      element.user_name = element?.user?.user_name && (
         <div className="payment-mode">
-          <span>{element?.user.user_name}</span>
+          <span>{element?.user?.user_name}</span>
         </div>
       );
 
@@ -76,6 +77,7 @@ const BetSlipTable = ({ data, ...props }) => {
   headerObj.data = headerObj ? orders : [];
 
   if (!data) return null;
+
   return (
     <>
       <ShowTable {...props} headerData={headerObj} />

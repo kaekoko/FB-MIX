@@ -53,7 +53,7 @@ const TableWarper = (WrappedComponent) => {
         },
       ]);
       const [sortBy, setSortBy] = useState({ field: "", sort: "asc" });
-      const { mutate, isLoading: load } = useDelete(staffDeleteAPI);
+      const { mutate, isLoading: load } = useDelete(props.deleteAPI);
       let ifParamsData = paramsProps ? Object.keys(paramsProps)[0] : "";
       const { data, isLoading, refetch, fetchStatus } = useQuery(
         [url],

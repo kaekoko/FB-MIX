@@ -663,3 +663,14 @@ export const BET_TYPE_LIST = [
     name: "Multiple",
   },
 ];
+
+export const BANNER_STATUS_LIST = [
+  {
+    value: 1,
+    name: "Active",
+  },
+  {
+    value: 0,
+    name: "Inactive",
+  },
+];
