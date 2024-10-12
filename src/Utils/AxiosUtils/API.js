@@ -144,3 +144,11 @@ export const userReportMain = "/agent/user/self/report";
 //Transaction
 export const agentMainTransaction = "/agent/main/transaction";
 export const userMainTransaction = "/user/main/transaction";
+
+export const trackBetslipAPI = "/agent/search";
+
+//banner
+export const bannerListAPI = "/agent/banner/list";
+export const bannerCreateAPI = "/agent/banner/create";
+export const bannerDeleteAPI = "/agent/banner/delete";
+export const bannerEditAPI = "/agent/banner/update";

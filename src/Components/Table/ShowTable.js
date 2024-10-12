@@ -18,6 +18,7 @@ import { FaMoneyBill, FaRegCopy } from "react-icons/fa";
 import { ToastNotification } from "@/Utils/CustomFunctions/ToastNotification";
 import DeleteButton from "./DeleteButton";
 import EditButton from "./EditButton";
+import Image from "next/image";
 
 const ShowTable = ({
   current_page,
@@ -211,10 +212,14 @@ const ShowTable = ({
                     {item.type == "date" ? (
                       <>{dateFormate(tableData[item?.apiKey])}</>
                     ) : item.type == "image" ? (
-                      <Avatar
-                        data={tableData[item?.apiKey]}
-                        placeHolder={item.placeHolderImage}
-                        name={tableData}
+                      <Image
+                        width={80}
+                        height={40}
+                        src={
+                          "https://api.topwin.club/public/storage/" +
+                          tableData[item?.apiKey]
+                        }
+                        alt="slider"
                       />
                     ) : item.type == "price" ? (
                       <>{tableData[item?.apiKey]}</>
@@ -259,9 +264,14 @@ const ShowTable = ({
                           <FaMoneyBill /> {item?.btnText}
                         </button>
                       </>
-                    ) : item.type == "staff_edit" ? (
+                    ) : item.type == "staff_edit" ||
+                      item.type == "banner_edit" ? (
                       <>
-                        <EditButton tableData={tableData} refetch={refetch} />
+                        <EditButton
+                          type={item.type}
+                          tableData={tableData}
+                          refetch={refetch}
+                        />
                       </>
                     ) : item.type == "copy" ? (
                       <>

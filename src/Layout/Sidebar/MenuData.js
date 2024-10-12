@@ -4,9 +4,10 @@ import {
   RiFileHistoryLine,
   RiGroupLine,
   RiHistoryLine,
-  RiHomeLine,
   RiLineChartLine,
   RiListUnordered,
+  RiSearch2Line,
+  RiSlideshow2Line,
 } from "react-icons/ri";
 
 const MENUITEMS = [
@@ -15,6 +16,13 @@ const MENUITEMS = [
     displayTitle: "Dashboard",
     icon: <RiDashboard3Line />,
     path: "/dashboard",
+    type: "link",
+  },
+  {
+    title: "Betslip Tracker",
+    displayTitle: "Betslip Tracker",
+    icon: <RiSearch2Line />,
+    path: "/betsliptracker",
     type: "link",
   },
   {
@@ -214,6 +222,13 @@ const MENUITEMS = [
         permission: [""],
       },
     ],
+  },
+  {
+    title: "Slider",
+    displayTitle: "Slider",
+    icon: <RiSlideshow2Line />,
+    path: "/slider",
+    type: "link",
   },
 ];
 
