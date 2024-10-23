@@ -60,7 +60,7 @@ const TopDashSection = () => {
           </div>
         </CardHeader>
 
-        <CardBody className="border border-2 p-3 rounded-3 mt-5">
+        <CardBody className="border border-2 p-3 rounded-3 mt-0">
           <div className="fs-5 mb-2 text-muted">User Management</div>
           <Container fluid={true} className="p-sm-0">
             <Row className="g-3 py-2">

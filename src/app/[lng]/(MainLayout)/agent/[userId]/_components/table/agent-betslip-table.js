@@ -25,8 +25,8 @@ const AgentBetSlipTable = ({ data, ...props }) => {
       { title: "Return Amount", apiKey: "return_amount", type: "price" },
       { title: "Status", apiKey: "status", type: "status" },
       {
-        title: "Date Time",
-        apiKey: "created_at",
+        title: "Cal Date",
+        apiKey: "cal_date",
         type: "date",
       },
     ],
