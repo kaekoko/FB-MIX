@@ -3,6 +3,7 @@ import {
   RiDashboard3Line,
   RiFileHistoryLine,
   RiGroupLine,
+  RiGuideLine,
   RiHistoryLine,
   RiLineChartLine,
   RiListUnordered,
@@ -228,6 +229,13 @@ const MENUITEMS = [
     displayTitle: "Slider",
     icon: <RiSlideshow2Line />,
     path: "/slider",
+    type: "link",
+  },
+  {
+    title: "Guide",
+    displayTitle: "Guide",
+    icon: <RiGuideLine />,
+    path: "/guide",
     type: "link",
   },
 ];
