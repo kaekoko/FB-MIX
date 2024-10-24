@@ -13,7 +13,7 @@ const Footer = () => {
       <footer className="footer">
         <Row>
           <Col md="12" className="footer-copyright text-center">
-            <p className="mb-0">© Topwin. All right reserved.</p>
+            <p className="mb-0">© Mega Sports 777. All right reserved.</p>
           </Col>
         </Row>
       </footer>
