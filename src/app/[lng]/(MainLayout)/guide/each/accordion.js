@@ -1,14 +1,14 @@
 import { Carousel, Accordion } from "react-bootstrap";
 import CarouselEach from "./carousel";
 
-const AccordionEach = ({ eventKey, onClick }) => {
+const AccordionEach = ({ eventKey, onClick, data }) => {
   return (
     <Accordion.Item eventKey={eventKey}>
-      <Accordion.Header onClick={() => onClick("0")}>
-        အထက် Agent ဖြင့် စာရင်းရှင်းနည်းကြည့်ရန်
+      <Accordion.Header onClick={() => onClick(data.id.toString())}>
+        {data.title}
       </Accordion.Header>
       <Accordion.Body>
-        <CarouselEach />
+        <CarouselEach item={data.image} />
       </Accordion.Body>
     </Accordion.Item>
   );
