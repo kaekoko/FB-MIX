@@ -13,6 +13,7 @@ import guide12 from "../../../../../../public/assets/images/guide/guide12.jpg";
 import guide13 from "../../../../../../public/assets/images/guide/guide13.jpg";
 import guide14 from "../../../../../../public/assets/images/guide/guide14.jpg";
 import guide15 from "../../../../../../public/assets/images/guide/guide15.jpg";
+import guide16 from "../../../../../../public/assets/images/guide/guide16.jpg";
 
 export const CarouselData = [
   {
@@ -119,7 +120,13 @@ export const CarouselData = [
         id: 5,
         img: guide15,
         alt: "Image 15",
-        desc: "4. Single , Mix နှင့် Special Single bet များအတွက် ပေးထိုးလိုသောပမာဏထည့်ရန် နှင့် comission အား ပြန်လည်ခွဲပေးရန် ထည့်ရန်။",
+        desc: "5. Agent list မှ ထည့်သွင်းလိုသော Agent အားရွေးပြီး Manage Balance အားနှိပ်ပါ။",
+      },
+      {
+        id: 6,
+        img: guide16,
+        alt: "Image 15",
+        desc: "6. ငွေသွင်းလိုလျှင် Deposit ကိုရွေးပြီး ထည့်သွင်းလိုသော Amount ရိုက်ထည့်ပါ။ ငွေထုတ်လိုလျှင် Withdraw ကိုရွေးပြီး ထုတ်လိုသော Amount ရိုက်ထည့်ပါ။",
       },
     ],
   },
