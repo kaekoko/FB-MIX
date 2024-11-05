@@ -14,6 +14,12 @@ import guide13 from "../../../../../../public/assets/images/guide/guide13.jpg";
 import guide14 from "../../../../../../public/assets/images/guide/guide14.jpg";
 import guide15 from "../../../../../../public/assets/images/guide/guide15.jpg";
 import guide16 from "../../../../../../public/assets/images/guide/guide16.jpg";
+import guide17 from "../../../../../../public/assets/images/guide/guide17.jpg";
+import guide18 from "../../../../../../public/assets/images/guide/guide18.jpg";
+import guide19 from "../../../../../../public/assets/images/guide/guide19.jpg";
+import guide20 from "../../../../../../public/assets/images/guide/guide20.jpg";
+import guide21 from "../../../../../../public/assets/images/guide/guide21.jpg";
+import guide22 from "../../../../../../public/assets/images/guide/guide22.jpg";
 
 export const CarouselData = [
   {
@@ -126,6 +132,48 @@ export const CarouselData = [
         id: 6,
         img: guide16,
         alt: "Image 15",
+        desc: "6. ငွေသွင်းလိုလျှင် Deposit ကိုရွေးပြီး ထည့်သွင်းလိုသော Amount ရိုက်ထည့်ပါ။ ငွေထုတ်လိုလျှင် Withdraw ကိုရွေးပြီး ထုတ်လိုသော Amount ရိုက်ထည့်ပါ။",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "User account ဖွင့်နည်းနှင့်ငွေသွင်းနည်း",
+    image: [
+      {
+        id: 1,
+        img: guide17,
+        alt: "Image 17",
+        desc: "1. Member Management မှ User ကိုနှိပ်ပါ။",
+      },
+      {
+        id: 2,
+        img: guide18,
+        alt: "Image 18",
+        desc: "2. Add User ကိုနှိပ်ပါ။",
+      },
+      {
+        id: 3,
+        img: guide19,
+        alt: "Image 19",
+        desc: "3. User Name နေရာတွင် ပေးလိုသော digit or character 6 လုံးရိုက်ထည့်ပါ။ ပေးလိုသော Password အား text,digit,special character (ဥပမာ - Asd@1234) အနည်းဆုံး ၈ လုံးရိုက်ထည့်ပါ။",
+      },
+      {
+        id: 4,
+        img: guide20,
+        alt: "Image 20",
+        desc: "4. Single , Mix နှင့် Special Single bet များအတွက် ပေးထိုးလိုသောပမာဏထည့်ပြီး Save ကိုနှိပ်ပါ။",
+      },
+      {
+        id: 5,
+        img: guide21,
+        alt: "Image 21",
+        desc: "5. User list မှ ထည့်သွင်းလိုသော User အားရွေးပြီး Manage Balance အားနှိပ်ပါ။",
+      },
+      {
+        id: 6,
+        img: guide22,
+        alt: "Image 22",
         desc: "6. ငွေသွင်းလိုလျှင် Deposit ကိုရွေးပြီး ထည့်သွင်းလိုသော Amount ရိုက်ထည့်ပါ။ ငွေထုတ်လိုလျှင် Withdraw ကိုရွေးပြီး ထုတ်လိုသော Amount ရိုက်ထည့်ပါ။",
       },
     ],
