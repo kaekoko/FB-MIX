@@ -1,20 +1,30 @@
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import {
   YupObject,
   nameSchema,
   passwordConfirmationSchema,
+  passwordSchema,
 } from "../../Utils/Validation/ValidationSchemas";
 import SimpleInputField from "../InputFields/SimpleInputField";
 import useCreate from "../../Utils/Hooks/useCreate";
 import { updateProfilePassword } from "../../Utils/AxiosUtils/API";
 import Btn from "../../Elements/Buttons/Btn";
 import I18NextContext from "@/Helper/I18NextContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import { Col } from "reactstrap";
+import { ReactstrapInput } from "../ReactstrapFormik";
+import { RiEye2Fill } from "react-icons/ri";
 
 const ProfilePasswordTab = () => {
   const { i18Lang } = useContext(I18NextContext);
   const { t } = useTranslation(i18Lang, "common");
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    oldPassword: false,
+    confirmPassword: false,
+  });
+
   const { mutate, isLoading, isSuccess } = useCreate(
     updateProfilePassword,
     false,
@@ -36,7 +46,7 @@ const ProfilePasswordTab = () => {
       }}
       validationSchema={YupObject({
         old_password: nameSchema,
-        password: nameSchema,
+        password: passwordSchema,
         confirm_password: passwordConfirmationSchema,
       })}
       onSubmit={(values, { resetForm }) => {
@@ -46,31 +56,96 @@ const ProfilePasswordTab = () => {
     >
       {({ values, setFieldValue }) => (
         <Form className="theme-form theme-form-2 mega-form">
-          <SimpleInputField
-            nameList={[
-              {
-                name: "old_password",
-                title: "Current Password",
-                placeholder: t("EnterCurrentPassword"),
-                require: "true",
-                type: "password",
-              },
-              {
-                name: "password",
-                title: "Password",
-                require: "true",
-                placeholder: t("EnterNewPassword"),
-                type: "password",
-              },
-              {
-                name: "confirm_password",
-                title: "Confirm Password",
-                require: "true",
-                placeholder: t("EnterConfirmPassword"),
-                type: "password",
-              },
-            ]}
-          />
+          <Col sm="12" className="mt-4">
+            <div className="position-relative w-100">
+              <div
+                style={{ padding: "10px 0rem" }}
+                className="position-absolute rounded-1 d-flex gap-3 align-items-center me-2 end-0"
+              >
+                <RiEye2Fill
+                  onClick={() =>
+                    setShowPassword((prev) => {
+                      return {
+                        ...showPassword,
+                        oldPassword: !prev.oldPassword,
+                      };
+                    })
+                  }
+                  color={showPassword.oldPassword ? "blue" : "black"}
+                  size={22}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <Field
+                type={showPassword.oldPassword ? "text" : "password"}
+                name="old_password"
+                id="old_password"
+                placeholder="Enter Current Password"
+                component={ReactstrapInput}
+              />
+            </div>
+          </Col>
+
+          <Col sm="12" className="mt-4 pt-2">
+            <div className="position-relative w-100">
+              <div
+                style={{ padding: "10px 0rem" }}
+                className="position-absolute rounded-1 d-flex gap-3 align-items-center me-2 end-0"
+              >
+                <RiEye2Fill
+                  onClick={() =>
+                    setShowPassword((prev) => {
+                      return {
+                        ...showPassword,
+                        password: !prev.password,
+                      };
+                    })
+                  }
+                  color={showPassword.password ? "blue" : "black"}
+                  size={22}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <Field
+                type={showPassword.password ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Password"
+                component={ReactstrapInput}
+              />
+            </div>
+          </Col>
+
+          <Col sm="12" className="mt-4">
+            <div className="position-relative w-100">
+              <div
+                style={{ padding: "10px 0rem" }}
+                className="position-absolute rounded-1 d-flex gap-3 align-items-center me-2 end-0"
+              >
+                <RiEye2Fill
+                  onClick={() =>
+                    setShowPassword((prev) => {
+                      return {
+                        ...showPassword,
+                        confirmPassword: !prev.confirmPassword,
+                      };
+                    })
+                  }
+                  color={showPassword.confirmPassword ? "blue" : "black"}
+                  size={22}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <Field
+                type={showPassword.confirmPassword ? "text" : "password"}
+                name="confirm_password"
+                id="confirm_password"
+                placeholder="Enter Confirm Password"
+                component={ReactstrapInput}
+              />
+            </div>
+          </Col>
+
           <Btn
             className="btn btn-theme ms-auto mt-4"
             type="submit"
