@@ -18,6 +18,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Col } from "reactstrap";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const { i18Lang } = useContext(I18NextContext);
@@ -25,6 +26,7 @@ const Login = () => {
   const [showBoxMessage, setShowBoxMessage] = useState();
   const { mutate, isLoading } = useHandleLogin(setShowBoxMessage);
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleCaptchaVerification = (value) => {
     setCaptchaValue(value);
@@ -69,15 +71,27 @@ const Login = () => {
                     label="User Name"
                   />
                 </Col>
-                <Col sm="12">
+                <Col sm="12" className="">
                   <Field
                     name="password"
                     component={ReactstrapInput}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     className="form-control"
                     id="password"
                     placeholder="Password"
                     label="Password"
+                  />
+                  <FaEye
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    color={showPassword ? "blue" : "black"}
+                    size={20}
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      right: "20px",
+                      transform: "translateY(-100%)",
+                      cursor: "pointer",
+                    }}
                   />
                 </Col>
                 <Col sm="12">

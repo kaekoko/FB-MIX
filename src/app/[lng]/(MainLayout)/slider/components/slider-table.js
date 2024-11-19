@@ -4,7 +4,7 @@ import ShowTable from "@/Components/Table/ShowTable";
 import TableWarper from "@/Utils/HOC/TableWarper";
 import { useMemo } from "react";
 
-const SliderTable = ({ data, ...props }) => {
+const SliderTable = ({ data, auth, authID, ...props }) => {
   const headerObj = {
     checkBox: false,
     isOption: false,
@@ -33,26 +33,32 @@ const SliderTable = ({ data, ...props }) => {
     data: data || [],
   };
 
-  let orders = useMemo(() => {
-    return headerObj?.data?.filter((element) => {
-      element.statusValue = element.status == 1 ?? 0;
+  const orders = useMemo(() => {
+    if (!headerObj?.data || !authID) return [];
 
-      element.status =
-        element.status != null ? (
-          <div
-            className={`badge py-1 px-3 ${
-              element.status == 1 ? "text-bg-success" : "text-bg-danger"
-            }`}
-          >
-            <span>{element.status == 1 ? "Active" : "Inactive"}</span>
-          </div>
-        ) : (
-          "-"
-        );
-      return element;
-    });
-  }, [headerObj?.data]);
-  headerObj.data = headerObj ? orders : [];
+    return headerObj.data
+      .filter((element) => element.agent_id === authID)
+      .map((element) => {
+        element.statusValue = element.status == 1 ? 1 : 0;
+
+        element.status =
+          element.status != null ? (
+            <div
+              className={`badge py-1 px-3 ${
+                element.status == 1 ? "text-bg-success" : "text-bg-danger"
+              }`}
+            >
+              <span>{element.status == 1 ? "Active" : "Inactive"}</span>
+            </div>
+          ) : (
+            "-"
+          );
+
+        return element;
+      });
+  }, [headerObj?.data, auth?.id]);
+
+  headerObj.data = orders;
 
   if (!data) return null;
 

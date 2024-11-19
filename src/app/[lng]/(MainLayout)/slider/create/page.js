@@ -75,7 +75,10 @@ const SliderCreatePage = () => {
                         </label>
                       </li>
                     </ul>
-                    <p className="help-text">Image (PNG format is standard)</p>
+                    <p className="help-text">
+                      Image (PNG format is standard and width 851px , height
+                      273px)
+                    </p>
                   </div>
                   <Btn
                     type="submit"
