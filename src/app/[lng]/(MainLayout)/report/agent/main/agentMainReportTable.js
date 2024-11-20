@@ -70,6 +70,9 @@ const AgentMainReportTable = ({ data, ...props }) => {
       element.agent_win_lose = element.agent_win_lose
         ? Math.round(element.agent_win_lose * 100) / 100
         : element.agent_win_lose;
+      element.commission_total = element.commission_total
+        ? Math.round(element.commission_total * 100) / 100
+        : element.commission_total;
       return element;
     });
   }, [headerObj?.data]);
