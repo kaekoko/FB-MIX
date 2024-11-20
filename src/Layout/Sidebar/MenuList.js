@@ -97,8 +97,8 @@ const MenuList = ({ menu, level, setActiveMenu, activeMenu }) => {
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
-                  setParentMenu(
-                    (prev) => prev !== mainMenu.title && mainMenu.title
+                  setParentMenu((prev) =>
+                    prev === mainMenu.title ? "" : mainMenu.title
                   );
                 }}
               >
@@ -106,9 +106,15 @@ const MenuList = ({ menu, level, setActiveMenu, activeMenu }) => {
                 <span>{t(mainMenu.title)}</span>
                 {mainMenu.children &&
                   (parentMenu === mainMenu.title ? (
-                    <RiArrowDownSLine className="icon-arrow" />
+                    <RiArrowDownSLine
+                      className="icon-arrow"
+                      style={{ pointerEvents: "none" }}
+                    />
                   ) : (
-                    <RiArrowRightSLine className="icon-arrow" />
+                    <RiArrowRightSLine
+                      className="icon-arrow"
+                      style={{ pointerEvents: "none" }}
+                    />
                   ))}
               </a>
             )}
