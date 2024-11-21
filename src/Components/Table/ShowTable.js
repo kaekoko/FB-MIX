@@ -100,8 +100,14 @@ const ShowTable = ({
 
   //Copy sub-objects
   const handleCPUsername = (cpdta) => {
+    let url = "https://agent.megasports777.com/";
+
+    if (headerData.optionHead.redirectUrl === "/user/") {
+      url = " https://download.megasports777.com/";
+    }
+
     navigator.clipboard.writeText(
-      `Username: ${cpdta.user_name}, Password: ${cpdta.pp_copy}`
+      `Username: ${cpdta.user_name}, Password: ${cpdta.pp_copy} , link: ${url}`
     );
     ToastNotification("success", "Copied credentials to clipboard!");
   };
