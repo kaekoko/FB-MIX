@@ -4,6 +4,7 @@ import { FiBox, FiPercent } from "react-icons/fi";
 import {
   RiFileTextLine,
   RiGroupLine,
+  RiRefreshLine,
   RiUser2Fill,
   RiWalletLine,
 } from "react-icons/ri";
@@ -50,14 +51,28 @@ const TopDashSection = () => {
 
   if (isFetching) return <Loader />;
 
+  console.log(date);
+
   return (
     <section className="dashboard-tiles">
       <Card className="border bg-transparent">
         <CardHeader className="d-md-flex align-items-center pb-3 bg-transparent px-0">
-          <div className="fs-4 fw-bold">Dashboard</div>
-          <div className="ms-auto">
-            {date && <CalenderFilter date={date} setDate={setDate} />}
+          <div className="d-flex align-items-center gap-3 fs-5">
+            <span className="fs-4 fw-bold">Dashboard</span> (
+            {format(date[0].startDate, "dd MM, yyyy")})
           </div>
+
+          {/* <div className="ms-auto">
+            {date && <CalenderFilter date={date} setDate={setDate} />}
+          </div> */}
+
+          <RiRefreshLine
+            title="Refresh"
+            role="button"
+            onClick={() => refetch()}
+            size={25}
+            className="text-success ms-auto fw-bold"
+          />
         </CardHeader>
 
         <CardBody className="border border-2 p-3 rounded-3 mt-0">
