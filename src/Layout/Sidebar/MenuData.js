@@ -184,6 +184,12 @@ const MENUITEMS = [
         displayTitle: "Daily Agent Report",
         permission: [""],
       },
+      {
+        title: "Today Report",
+        path: "/report/agent/current",
+        displayTitle: "Today Report",
+        permission: [""],
+      },
     ],
   },
   {

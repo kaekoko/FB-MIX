@@ -15,7 +15,8 @@ const ViewDetails = ({ fullObj, tableData, refetch }) => {
     if (
       tableData.redirectUrl === "/report/agent/" ||
       tableData.redirectUrl === "/report/agent/user/" ||
-      tableData.redirectUrl === "/report/user/user/"
+      tableData.redirectUrl === "/report/user/user/" ||
+      tableData.redirectUrl === "/report/agent/current/"
     ) {
       router.push(`${tableData?.redirectUrl}/${username}`);
     } else {
