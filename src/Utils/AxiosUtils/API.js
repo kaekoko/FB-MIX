@@ -136,6 +136,8 @@ export const agentDailyReport = "/agent/daily";
 export const agentReportUsernameApi = "/agent/report/agent";
 export const agentReportMain = "/agent/main/agent/report";
 export const agentUserByOneSlips = "/agent/user/report/byOneSlip";
+export const agentCurrentReport = "/agent/main/agent/current/report";
+export const agentCurrentReportByUserName = "/agent/report/agent/current";
 
 //REPORT USER
 export const userDailyReport = "/agent/user/self/daily";
