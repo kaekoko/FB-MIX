@@ -58,21 +58,12 @@ const TopDashSection = () => {
       <Card className="border bg-transparent">
         <CardHeader className="d-md-flex align-items-center pb-3 bg-transparent px-0">
           <div className="d-flex align-items-center gap-3 fs-5">
-            <span className="fs-4 fw-bold">Dashboard</span> (
-            {format(date[0].startDate, "dd MM, yyyy")})
+            <span className="fs-4 fw-bold">Dashboard</span>
           </div>
 
-          {/* <div className="ms-auto">
+          <div className="ms-auto">
             {date && <CalenderFilter date={date} setDate={setDate} />}
-          </div> */}
-
-          <RiRefreshLine
-            title="Refresh"
-            role="button"
-            onClick={() => refetch()}
-            size={25}
-            className="text-success ms-auto fw-bold"
-          />
+          </div>
         </CardHeader>
 
         <CardBody className="border border-2 p-3 rounded-3 mt-0">
