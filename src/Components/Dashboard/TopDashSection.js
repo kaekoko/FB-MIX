@@ -66,6 +66,14 @@ const TopDashSection = () => {
           </div>
         </CardHeader>
 
+        <div className="mb-4 mt-1 text-muted">
+          ယနေ့ report များကို ယခု Dashboard တွင်လက်တလောကြည့်ရှုမရနိုင်သေးပါ။
+          ကြည့်ရှုလိုပါက Agent report မှ Today report တွင်ကြည့်ရှုနိုင်ပါသည်။
+          Dashbaord တွက် အထက် Agent ဖြင့်ရှင်းရန်ဖြစ်ပါသည်။ Dashboard တွင် 5
+          ရက်နေ့ report အား 6 ရက်နေ့ နေ့လည် ၁၂ တွင် start date 5 end date 5
+          ရွေးပြီးကြည့်ရှုနိုင်ပါသည်။
+        </div>
+
         <CardBody className="border border-2 p-3 rounded-3 mt-0">
           <div className="fs-5 mb-2 text-muted">User Management</div>
           <Container fluid={true} className="p-sm-0">
