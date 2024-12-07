@@ -185,9 +185,9 @@ const MENUITEMS = [
         permission: [""],
       },
       {
-        title: "Today Report",
+        title: "Today Agent Report",
         path: "/report/agent/current",
-        displayTitle: "Today Report",
+        displayTitle: "Today Agent Report",
         permission: [""],
       },
     ],
