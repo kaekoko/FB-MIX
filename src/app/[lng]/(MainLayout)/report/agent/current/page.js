@@ -7,7 +7,7 @@ const AgentReportWithUsername = () => {
   return (
     <AgentCurrentReportTable
       url={agentCurrentReport}
-      moduleName="Agent Today Report"
+      moduleName="Today Agent Report"
       filterHeader={{ noSearch: true, isReportDetail: true }}
     />
   );

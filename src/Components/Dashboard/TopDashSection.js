@@ -51,8 +51,6 @@ const TopDashSection = () => {
 
   if (isFetching) return <Loader />;
 
-  console.log(date);
-
   return (
     <section className="dashboard-tiles">
       <Card className="border bg-transparent">
@@ -69,8 +67,10 @@ const TopDashSection = () => {
         <div className="mb-4 mt-1 text-muted">
           ယနေ့ report များကို ယခု Dashboard တွင်လက်တလောကြည့်ရှုမရနိုင်သေးပါ။
           ကြည့်ရှုလိုပါက Agent report မှ Today report တွင်ကြည့်ရှုနိုင်ပါသည်။
-          Dashbaord တွက် အထက် Agent ဖြင့်ရှင်းရန်ဖြစ်ပါသည်။ Dashboard တွင် 5
-          ရက်နေ့ report အား 6 ရက်နေ့ နေ့လည် ၁၂ တွင် start date 5 end date 5
+          Dashbaord တွက် အထက် Agent ဖြင့်ရှင်းရန်ဖြစ်ပါသည်။ Dashboard တွင်{" "}
+          {new Date().getDate()}
+          ရက်နေ့ report အား {new Date().getDate() + 1} ရက်နေ့ နေ့လည် ၁၂ တွင်
+          start date {new Date().getDate()} end date {new Date().getDate()}{" "}
           ရွေးပြီးကြည့်ရှုနိုင်ပါသည်။
         </div>
 

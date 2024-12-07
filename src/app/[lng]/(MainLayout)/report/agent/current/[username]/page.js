@@ -12,7 +12,7 @@ const AgentCurrentReportWithUsername = ({ params: { username } }) => {
     <>
       <AgentCurrentReportUsernameTable
         url={url}
-        moduleName="Agent Today Report"
+        moduleName="Today Agent Report"
         filterHeader={{
           noSearch: true,
           onlyNoPageDrop: true,
@@ -22,7 +22,7 @@ const AgentCurrentReportWithUsername = ({ params: { username } }) => {
       />
       <UserCurrentReportUsernameTable
         url={url}
-        moduleName="User Today Report"
+        moduleName="Today User Report"
         filterHeader={{
           noSearch: true,
           noPageDrop: true,
