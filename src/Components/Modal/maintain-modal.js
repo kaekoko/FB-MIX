@@ -19,7 +19,7 @@ const MaintainModaleDialog = () => {
   });
 
   useEffect(() => {
-    if (data?.agent_maintain == 1) {
+    if (data?.agent_maintain == 10) {
       setIsOpen(true);
     }
   }, [data?.agent_maintain]);

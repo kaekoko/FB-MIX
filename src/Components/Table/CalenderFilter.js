@@ -1,18 +1,19 @@
-import { DateRangePicker } from "react-date-range";
 import { Input } from "reactstrap";
-import { dateFormate } from "../../Utils/CustomFunctions/DateFormate";
-import CloseDateRange from "./CloseDateRange";
-import useOutsideDropdown from "../../Utils/Hooks/CustomHooks/useOutsideDropdown";
 import { format } from "date-fns";
+import { useAgentReportDate } from "@/Utils/Zustand";
 
 const CalenderFilter = ({ date, setDate }) => {
+  const { dateData, setDateData } = useAgentReportDate();
   const handleDatePicker = (e, type) => {
     e.preventDefault();
+
     setDate((prev) => {
       const newDate = [...prev];
       newDate[0][type] = new Date(e.target.value);
       return newDate;
     });
+
+    setDateData(date);
   };
 
   return (
