@@ -43,3 +43,8 @@ export const useAgentPasswordModal = create((set) => ({
   data: {},
   setData: (data) => set({ data: data }),
 }));
+
+export const useAgentReportDate = create((set) => ({
+  dateData: {},
+  setDateData: (data) => set({ dateData: data }),
+}));

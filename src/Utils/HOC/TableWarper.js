@@ -35,6 +35,7 @@ const TableWarper = (WrappedComponent) => {
         filterHeader,
         importExport,
         keyInPermission,
+        reportDate,
         ...props
       },
       ref
@@ -47,11 +48,13 @@ const TableWarper = (WrappedComponent) => {
       const [betType, setBetType] = useState(null);
       const [date, setDate] = useState([
         {
-          startDate: startOfDay(new Date()) || null,
-          endDate: endOfDay(new Date()) || null,
+          startDate:
+            reportDate?.[0]?.startDate || startOfDay(new Date()) || null,
+          endDate: reportDate?.[0]?.endDate || endOfDay(new Date()) || null,
           key: "selection",
         },
       ]);
+
       const [sortBy, setSortBy] = useState({ field: "", sort: "asc" });
       const { mutate, isLoading: load } = useDelete(props.deleteAPI);
       let ifParamsData = paramsProps ? Object.keys(paramsProps)[0] : "";
@@ -120,6 +123,7 @@ const TableWarper = (WrappedComponent) => {
             : "";
         }
       }, [data]);
+
       if (isLoading) return <Loader />;
       return (
         <>
