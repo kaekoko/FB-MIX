@@ -29,15 +29,8 @@ const UserReportUsernameTable = ({ type, data, ...props }) => {
       },
 
       {
-        title: "Downline Commission",
+        title: "Commission",
         apiKey: "commission_total",
-        sortBy: "desc",
-        type: "price",
-      },
-
-      {
-        title: "Self Commission",
-        apiKey: "self_commission",
         sortBy: "desc",
         type: "price",
       },
@@ -70,6 +63,7 @@ const UserReportUsernameTable = ({ type, data, ...props }) => {
   headerObj.data = headerObj ? orders : [];
 
   if (!data) return null;
+
   return (
     <>
       <ShowTable {...props} headerData={headerObj} />
