@@ -18,7 +18,7 @@ const Footer = () => {
             md="12"
             className="footer-copyright d-flex align-items-center gap-3 justify-content-center"
           >
-            <a
+            {/* <a
               style={{ position: "absolute", bottom: "0px", right: "10px" }}
               href="https://t.me/megasportscustomersupport"
             >
@@ -29,7 +29,7 @@ const Footer = () => {
                 height={80}
                 className="border rounded-circle"
               />
-            </a>
+            </a> */}
             <p className="mb-0">© Mega Sports 777. All right reserved.</p>
           </Col>
         </Row>
