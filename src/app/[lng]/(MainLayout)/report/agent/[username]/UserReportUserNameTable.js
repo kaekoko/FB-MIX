@@ -29,8 +29,15 @@ const UserReportUsernameTable = ({ type, data, ...props }) => {
       },
 
       {
-        title: "Commission",
+        title: "Downline Commission",
         apiKey: "commission_total",
+        sortBy: "desc",
+        type: "price",
+      },
+
+      {
+        title: "Self Commission",
+        apiKey: "self_commission",
         sortBy: "desc",
         type: "price",
       },

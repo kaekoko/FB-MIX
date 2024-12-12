@@ -18,8 +18,17 @@ const Footer = () => {
             md="12"
             className="footer-copyright d-flex align-items-center gap-3 justify-content-center"
           >
-            <a href="https://t.me/megasports777support">
-              <Image alt="tele-icon" src={teleImage} width={40} height={40} />
+            <a
+              style={{ position: "absolute", bottom: "0px", right: "10px" }}
+              href="https://t.me/megasportscustomersupport"
+            >
+              <Image
+                alt="tele-icon"
+                src={teleImage}
+                width={80}
+                height={80}
+                className="border rounded-circle"
+              />
             </a>
             <p className="mb-0">© Mega Sports 777. All right reserved.</p>
           </Col>
