@@ -6,12 +6,18 @@ import TabTitle from "@/Components/Coupon/TabTitle";
 import { AccountTab } from "@/Data/TabTitleListData";
 import AgentGeneral from "./_components/General";
 import AgentTransaction from "./_components/Transaction";
-import { RiAdminLine, RiPercentLine, RiUserLine } from "react-icons/ri";
+import {
+  RiAdminLine,
+  RiHistoryLine,
+  RiPercentLine,
+  RiUserLine,
+} from "react-icons/ri";
 import AgentBetSlip from "./_components/Betslip";
 import AgentReport from "./_components/Report";
 import AgentCommission from "./_components/Comission";
 import AgentEachAgentList from "./_components/AgentList";
 import AgentEachUserList from "./_components/UserList";
+import AgentLog from "./_components/AgentLog";
 
 const AgentDetail = ({ params }) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -28,6 +34,10 @@ const AgentDetail = ({ params }) => {
     {
       title: "User List",
       icon: <RiUserLine />,
+    },
+    {
+      title: "Log",
+      icon: <RiHistoryLine />,
     },
   ];
 
@@ -63,6 +73,9 @@ const AgentDetail = ({ params }) => {
           {activeTab === "7" && (
             <AgentEachUserList {...{ params, activeTab }} />
           )}
+        </TabPane>
+        <TabPane tabId="8">
+          {activeTab === "8" && <AgentLog {...{ params }} />}
         </TabPane>
       </TabContent>
     </div>

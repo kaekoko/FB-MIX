@@ -154,3 +154,8 @@ export const bannerListAPI = "/agent/banner/list";
 export const bannerCreateAPI = "/agent/banner/create";
 export const bannerDeleteAPI = "/agent/banner/delete";
 export const bannerEditAPI = "/agent/banner/update";
+
+//Agent By Transaction Log
+export const agentByAgentTransactionLog = "/agent/byagent/logs";
+export const agentByUserTransactionLog = "/agent/byuser/logs";
+export const agentByCompanyTransactionLog = "/agent/bycompany/logs";
