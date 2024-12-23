@@ -8,6 +8,7 @@ import {
   RiLineChartLine,
   RiListUnordered,
   RiSearch2Line,
+  RiServiceFill,
   RiSlideshow2Line,
 } from "react-icons/ri";
 
@@ -242,6 +243,13 @@ const MENUITEMS = [
     displayTitle: "Guide",
     icon: <RiGuideLine />,
     path: "/guide",
+    type: "link",
+  },
+  {
+    title: "Customer support",
+    displayTitle: "Customer Support",
+    icon: <RiServiceFill />,
+    path: "/support",
     type: "link",
   },
 ];
