@@ -159,3 +159,7 @@ export const bannerEditAPI = "/agent/banner/update";
 export const agentByAgentTransactionLog = "/agent/byagent/logs";
 export const agentByUserTransactionLog = "/agent/byuser/logs";
 export const agentByCompanyTransactionLog = "/agent/bycompany/logs";
+
+//Support
+export const getAgentTicket = "/agentticket";
+export const createAgentTicket = "/agentstore/ticket";
