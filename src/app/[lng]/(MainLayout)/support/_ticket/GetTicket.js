@@ -56,13 +56,13 @@ const GetTicket = () => {
                 <td>
                   {images.length > 0 ? (
                     <a
-                      href={`https://api.topwin.club/public/storage/${images[0]}`}
+                      href={`https://staging.topwin.club/public/storage/${images[0]}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <Image
                         alt="Ticket Image"
-                        src={`https://api.topwin.club/public/storage/${images[0]}`}
+                        src={`https://staging.topwin.club/public/storage/${images[0]}`}
                         width={80}
                         height={80}
                       />

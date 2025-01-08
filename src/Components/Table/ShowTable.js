@@ -222,7 +222,7 @@ const ShowTable = ({
                         width={80}
                         height={40}
                         src={
-                          "https://api.topwin.club/public/storage/" +
+                          "https://staging.topwin.club/public/storage/" +
                           tableData[item?.apiKey]
                         }
                         alt="slider"

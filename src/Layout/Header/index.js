@@ -27,7 +27,7 @@ const Header = ({ setMode, setLtr, settingData }) => {
           <ToggleButton setSidebarOpen={setSidebarOpen} />
           <a className="d-lg-none d-block mobile-logo">
             <Image
-              src={`https://api.topwin.club/public/images/logo/logo.png`}
+              src={`https://staging.topwin.club/public/images/logo/logo.png`}
               height={50}
               width={50}
               alt="Dark Logo"
