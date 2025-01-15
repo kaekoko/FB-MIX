@@ -77,38 +77,57 @@ const ViewDetailBody = ({ fullObj }) => {
             )}
           </div>
         </div>
-        <div className="d-flex justify-content-center mt-2 gap-2">
-          <div
-            className={`${
-              fullObj?.single_bets?.[0]?.bet_choice === "over"
-                ? "btn-theme"
-                : "border border-2 border-secondary"
-            } w-100 py-2 d-flex justify-content-center align-items-center text-center rounded-3`}
-          >
-            Over
-          </div>
-          {(fullObj?.single_bets?.[0]?.bet_choice === "under" ||
-            fullObj?.single_bets?.[0]?.bet_choice === "over") && (
-            <div className="d-flex col-2 align-items-center justify-content-center border border-2 border-secondary">
-              {fullObj?.single_bets?.[0]?.goal_total == 0
-                ? "="
-                : fullObj?.single_bets?.[0]?.goal_total}{" "}
-              {fullObj?.single_bets?.[0]?.odds > 0 ? "+" : ""}{" "}
-              {fullObj?.single_bets?.[0]?.odds == 0
-                ? "="
-                : fullObj?.single_bets?.[0]?.odds}
+
+        {fullObj?.slip_format_new ? (
+          <div className="d-flex justify-content-between mt-2 gap-2 px-1">
+            <div className="text-start">
+              {fullObj?.single_bets?.[0]?.bet_choice}
+              {["win1", "win2", "btts_yes", "btts_no", "draw"].includes(
+                fullObj?.single_bets?.[0]?.bet_choice
+              )
+                ? ""
+                : ` (${
+                    fullObj?.single_bets?.[0]?.correct_score_value ||
+                    fullObj?.single_bets?.[0]?.goal_total_score
+                  })`}
             </div>
-          )}
-          <div
-            className={`${
-              fullObj?.single_bets?.[0]?.bet_choice === "under"
-                ? "btn-theme"
-                : "border border-2 border-secondary"
-            } w-100 py-2 d-flex justify-content-center align-items-center text-center rounded-3`}
-          >
-            Under
+            <div className="">{fullObj?.single_bets?.[0]?.odds}</div>
           </div>
-        </div>
+        ) : (
+          <div className="d-flex justify-content-center mt-2 gap-2">
+            <div
+              className={`${
+                fullObj?.single_bets?.[0]?.bet_choice === "over"
+                  ? "btn-theme"
+                  : "border border-2 border-secondary"
+              } w-100 py-2 d-flex justify-content-center align-items-center text-center rounded-3`}
+            >
+              Over
+            </div>
+            {(fullObj?.single_bets?.[0]?.bet_choice === "under" ||
+              fullObj?.single_bets?.[0]?.bet_choice === "over") && (
+              <div className="d-flex col-2 align-items-center justify-content-center border border-2 border-secondary">
+                {fullObj?.single_bets?.[0]?.goal_total == 0
+                  ? "="
+                  : fullObj?.single_bets?.[0]?.goal_total}{" "}
+                {fullObj?.single_bets?.[0]?.odds > 0 ? "+" : ""}{" "}
+                {fullObj?.single_bets?.[0]?.odds == 0
+                  ? "="
+                  : fullObj?.single_bets?.[0]?.odds}
+              </div>
+            )}
+            <div
+              className={`${
+                fullObj?.single_bets?.[0]?.bet_choice === "under"
+                  ? "btn-theme"
+                  : "border border-2 border-secondary"
+              } w-100 py-2 d-flex justify-content-center align-items-center text-center rounded-3`}
+            >
+              Under
+            </div>
+          </div>
+        )}
+
         <div className="d-flex justify-content-between mt-2 px-1 w-100">
           <div className="text-start">Betamount</div>
           <div className="">{fullObj?.stake}</div>
