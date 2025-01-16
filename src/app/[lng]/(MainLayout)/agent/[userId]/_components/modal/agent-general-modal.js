@@ -24,6 +24,8 @@ const AgentGeneralModal = ({ refetch, ...rest }) => {
     refetch,
   });
 
+  console.log(data);
+
   return (
     <div>
       <ShowModal
@@ -45,6 +47,8 @@ const AgentGeneralModal = ({ refetch, ...rest }) => {
               max_single_bet: data?.max_single_bet,
               single_bet_commission: data?.single_bet_commission,
               feature_max_single_bet: data?.feature_max_single_bet,
+              usa_single_bet_commission: data?.usa_single_bet_commission,
+              usa_multiple_bet_commission: data?.usa_multiple_bet_commission,
             }}
             validationSchema={YupObject({
               name: nameSchema,
@@ -53,6 +57,8 @@ const AgentGeneralModal = ({ refetch, ...rest }) => {
               max_single_bet: Yup.number().required(),
               single_bet_commission: Yup.number().required(),
               feature_max_single_bet: Yup.number().required(),
+              usa_single_bet_commission: Yup.number().required(),
+              usa_multiple_bet_commission: Yup.number().required(),
             })}
             onSubmit={(values) => {
               values["id"] = data?.id;
@@ -128,6 +134,33 @@ const AgentGeneralModal = ({ refetch, ...rest }) => {
                       type="number"
                       name="feature_max_single_bet"
                       id="feature_max_single_bet"
+                      placeholder="Enter ..."
+                      component={ReactstrapInput}
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="mt-4">
+                  <Col sm={12} md={6} className="mt-2 mt-md-0">
+                    <label for="usa_single_bet_commission">
+                      Euro Single Bet Commission
+                    </label>
+                    <Field
+                      type="number"
+                      name="usa_single_bet_commission"
+                      id="usa_single_bet_commission"
+                      placeholder="Enter ..."
+                      component={ReactstrapInput}
+                    />
+                  </Col>
+                  <Col sm={12} md={6} className="mt-2 mt-md-0">
+                    <label for="usa_multiple_bet_commission">
+                      Euro Multiple Bet Commission
+                    </label>
+                    <Field
+                      type="number"
+                      name="usa_multiple_bet_commission"
+                      id="usa_multiple_bet_commission"
                       placeholder="Enter ..."
                       component={ReactstrapInput}
                     />
