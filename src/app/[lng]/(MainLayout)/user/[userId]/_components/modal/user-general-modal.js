@@ -44,6 +44,8 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
               max_mix_bet: data?.max_mix_bet,
               max_single_bet: data?.max_single_bet,
               feature_max_single_bet: data?.feature_max_single_bet,
+              usa_max_single_bet: data?.usa_max_single_bet,
+              usa_max_mix_bet: data?.usa_max_mix_bet,
             }}
             validationSchema={YupObject({
               name: nameSchema,
@@ -51,6 +53,8 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
               max_mix_bet: Yup.number().required(),
               max_single_bet: Yup.number().required(),
               feature_max_single_bet: Yup.number().required(),
+              usa_max_single_bet: Yup.number().required(),
+              usa_max_mix_bet: Yup.number().required(),
             })}
             onSubmit={(values) => {
               values["id"] = data?.id;
@@ -112,6 +116,31 @@ const UserGeneralModal = ({ refetch, ...rest }) => {
                       type="number"
                       name="feature_max_single_bet"
                       id="feature_max_single_bet"
+                      placeholder="Enter ..."
+                      component={ReactstrapInput}
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="mt-4">
+                  <Col sm={12} md={4}>
+                    <label for="usa_max_single_bet">
+                      Euro Max Single Bet :
+                    </label>
+                    <Field
+                      type="number"
+                      name="usa_max_single_bet"
+                      id="usa_max_single_bet"
+                      placeholder="Enter ..."
+                      component={ReactstrapInput}
+                    />
+                  </Col>
+                  <Col sm={12} md={4} className="mt-2 mt-md-0">
+                    <label for="usa_max_mix_bet"> Euro Max Mix Bet :</label>
+                    <Field
+                      type="number"
+                      name="usa_max_mix_bet"
+                      id="usa_max_mix_bet"
                       placeholder="Enter ..."
                       component={ReactstrapInput}
                     />

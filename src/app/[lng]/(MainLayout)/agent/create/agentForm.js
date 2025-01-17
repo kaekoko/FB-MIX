@@ -68,6 +68,8 @@ const AgentForm = () => {
         usa_multiple_bet_commission: Number(
           accountData?.usa_multiple_bet_commission || 0
         ),
+        usa_max_single_bet: Number(accountData?.usa_max_single_bet || 0),
+        usa_max_mix_bet: Number(accountData?.usa_max_mix_bet || 0),
         match_count_two: Number(accountData?.match_count_two || 0),
         match_count_three: Number(accountData?.match_count_three || 0),
         match_count_four: Number(accountData?.match_count_four || 0),
@@ -102,6 +104,12 @@ const AgentForm = () => {
         usa_multiple_bet_commission: Yup.number()
           .required()
           .max(Number(accountData?.usa_multiple_bet_commission)),
+        usa_max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.usa_max_single_bet)),
+        usa_max_mix_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.usa_max_mix_bet)),
         match_count_two: Yup.number()
           .required()
           .max(Number(accountData?.match_count_two)),
@@ -322,6 +330,35 @@ const AgentForm = () => {
                 type="number"
                 name="usa_multiple_bet_commission"
                 id="usa_multiple_bet_commission"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+          </Row>
+
+          <Row className="mt-3">
+            <Col sm="12" md="6">
+              <label for="usa_max_single_bet" className="fw-bold">
+                Euro Max Single Bet
+              </label>
+
+              <Field
+                type="number"
+                name="usa_max_single_bet"
+                id="usa_max_single_bet"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+            <Col sm="12" md="6">
+              <label for="usa_max_mix_bet" className="fw-bold">
+                Euro Max Mix Bet
+              </label>
+
+              <Field
+                type="number"
+                name="usa_max_mix_bet"
+                id="usa_max_mix_bet"
                 component={ReactstrapInput}
                 required
               />
