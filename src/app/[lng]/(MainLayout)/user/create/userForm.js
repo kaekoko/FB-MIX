@@ -59,6 +59,8 @@ const UserFormCreate = () => {
         feature_max_single_bet: Number(
           accountData?.feature_max_single_bet || 0
         ),
+        usa_max_single_bet: Number(accountData?.usa_max_single_bet || 0),
+        usa_max_mix_bet: Number(accountData?.usa_max_mix_bet || 0),
       }}
       validationSchema={YupObject({
         name: nameSchema,
@@ -74,6 +76,12 @@ const UserFormCreate = () => {
         feature_max_single_bet: Yup.number()
           .required()
           .max(Number(accountData?.feature_max_single_bet)),
+        usa_max_single_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.usa_max_single_bet)),
+        usa_max_mix_bet: Yup.number()
+          .required()
+          .max(Number(accountData?.usa_max_mix_bet)),
       })}
       onSubmit={(values, { resetForm }) => {
         values["user_name"] =
@@ -221,6 +229,35 @@ const UserFormCreate = () => {
                 type="number"
                 name="feature_max_single_bet"
                 id="feature_max_single_bet"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+          </Row>
+
+          <Row className="mt-3">
+            <Col sm="12" md="6">
+              <label for="usa_max_single_bet" className="fw-bold">
+                Euro Max Single Bet :
+              </label>
+
+              <Field
+                type="number"
+                name="usa_max_single_bet"
+                id="usa_max_single_bet"
+                component={ReactstrapInput}
+                required
+              />
+            </Col>
+            <Col sm="12" md="6">
+              <label for="usa_max_mix_bet" className="fw-bold">
+                Euro Max Mix Bet :
+              </label>
+
+              <Field
+                type="number"
+                name="usa_max_mix_bet"
+                id="usa_max_mix_bet"
                 component={ReactstrapInput}
                 required
               />

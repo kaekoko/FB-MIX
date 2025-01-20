@@ -96,9 +96,28 @@ const AgentGeneral = ({ params: { userId }, activeTab }) => {
           </Col>
         </Row>
         <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
-          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
             <div className="fst-italic">Feature Max Single Bet :</div>
             <h2>{data?.data?.data?.feature_max_single_bet}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Single Bet Commission :</div>
+            <h2>{data?.data?.data?.usa_single_bet_commission}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Multiple Bet Commission :</div>
+            <h2>{data?.data?.data?.usa_multiple_bet_commission}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Max Single Bet :</div>
+            <h2>{data?.data?.data?.usa_max_single_bet}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Max Mix Bet :</div>
+            <h2>{data?.data?.data?.usa_max_mix_bet}</h2>
           </Col>
         </Row>
       </Card>

@@ -50,6 +50,28 @@ const ProfileInformation = () => {
             <h2>{data?.data?.single_bet_commission}</h2>
           </Col>
         </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Single Bet Commission :</div>
+            <h2>{data?.data?.usa_single_bet_commission}</h2>
+          </Col>
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Mix Bet Commission :</div>
+            <h2>{data?.data?.usa_multiple_bet_commission}</h2>
+          </Col>
+          <Col sm={12} md={3} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Max Single Bet :</div>
+            <h2>{data?.data?.usa_max_single_bet}</h2>
+          </Col>
+        </Row>
+
+        <Row className="mx-md-5 gap-3 mt-3 mt-md-5">
+          <Col sm={12} md={4} className="d-flex flex-column gap-2">
+            <div className="fst-italic">Euro Max Mix Bet :</div>
+            <h2>{data?.data?.usa_max_mix_bet}</h2>
+          </Col>
+        </Row>
       </Card>
       <div className="fs-4 my-2 text-muted">Mix Bet Commission</div>
       <Card className="rounded-2 border pt-3 bg-transparent">

@@ -24,6 +24,7 @@ const AgentBetSlipTable = ({ data, ...props }) => {
       },
       { title: "Return Amount", apiKey: "return_amount", type: "price" },
       { title: "Status", apiKey: "status", type: "status" },
+      { title: "Slip Format", apiKey: "slip_format", type: "status" },
       {
         title: "Cal Date",
         apiKey: "cal_date",
@@ -64,9 +65,22 @@ const AgentBetSlipTable = ({ data, ...props }) => {
       ) : (
         "-"
       );
+
       element.user_name = element.user.user_name && (
         <div className="payment-mode">
           <span>{element?.user.user_name}</span>
+        </div>
+      );
+
+      element.slip_format_new = element.slip_format;
+
+      element.slip_format = element?.slip_format ? (
+        <div className="badge py-1 px-3 text-bg-info">
+          <span>Euro Odd</span>
+        </div>
+      ) : (
+        <div className="badge py-1 px-3 badge-danger">
+          <span>Myanmar Odd</span>
         </div>
       );
 
