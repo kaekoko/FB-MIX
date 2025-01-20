@@ -29,7 +29,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "staging.topwin.club",
+        hostname: "api.topwin.club",
       },
       {
         protocol: "https",
