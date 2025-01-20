@@ -10,7 +10,7 @@ export async function generateMetadata() {
     title: "Mega Sports 777",
     description: "Mega Sports 777",
     icons: {
-      icon: "https://staging.topwin.club/public/images/logo/favicon.png",
+      icon: "https://api.topwin.club/public/images/logo/favicon.png",
       link: {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Public+Sans&display=swap",

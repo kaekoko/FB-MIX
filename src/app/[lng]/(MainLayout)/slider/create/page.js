@@ -91,7 +91,7 @@ const SliderCreatePage = () => {
                   <Image
                     src={
                       selectedImage ||
-                      "https://staging.topwin.club/public/images/no-image.png"
+                      "https://api.topwin.club/public/images/no-image.png"
                     }
                     alt="banner"
                     width={300}

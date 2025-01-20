@@ -12,7 +12,7 @@ const LogoWrapper = ({ setSidebarOpen }) => {
       <Logo />
       <Image
         className="img-fluid logo-sm w-auto"
-        src={`https://staging.topwin.club/public/images/logo/logo.png`}
+        src={`https://api.topwin.club/public/images/logo/logo.png`}
         alt="Tiny Logo"
         width={100}
         height={100}

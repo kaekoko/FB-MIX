@@ -170,7 +170,7 @@ const EditButton = ({ type, tableData, refetch }) => {
                         alt="banner"
                         src={
                           selectedImage ||
-                          `https://staging.topwin.club/public/storage/${tableData.image}`
+                          `https://api.topwin.club/public/storage/${tableData.image}`
                         }
                         fill
                         priority

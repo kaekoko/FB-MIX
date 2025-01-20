@@ -90,7 +90,7 @@ const MessageOfEachTicket = ({ params }) => {
                 }`}
               >
                 <img
-                  src={`https://staging.topwin.club/public/storage/${image}`}
+                  src={`https://api.topwin.club/public/storage/${image}`}
                   className="d-block w-100"
                   style={{ height: "200px" }}
                   alt={`Slide ${index}`}

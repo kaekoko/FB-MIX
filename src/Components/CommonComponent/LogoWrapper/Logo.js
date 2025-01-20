@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Link href="/dashboard">
       <Image
-        src={`https://staging.topwin.club/public/images/logo/logo.png`}
+        src={`https://api.topwin.club/public/images/logo/logo.png`}
         alt="TopwinLogo"
         width={100}
         height={100}
