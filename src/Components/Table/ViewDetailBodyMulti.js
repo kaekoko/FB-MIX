@@ -79,7 +79,7 @@ const ViewDetailBodyMulti = ({ fullObj }) => {
                     ? ""
                     : ` ( ${a?.correct_score_value || a?.goal_total_score} )`}
                 </div>
-                <div className="">{a?.odds}</div>
+                <div className="">{a?.usa_odds}</div>
               </div>
             ) : (
               <>

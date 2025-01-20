@@ -91,7 +91,7 @@ const ViewDetailBody = ({ fullObj }) => {
                     fullObj?.single_bets?.[0]?.goal_total_score
                   })`}
             </div>
-            <div className="">{fullObj?.single_bets?.[0]?.odds}</div>
+            <div className="">{fullObj?.single_bets?.[0]?.usa_odds}</div>
           </div>
         ) : (
           <div className="d-flex justify-content-center mt-2 gap-2">
